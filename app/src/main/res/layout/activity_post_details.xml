@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/onclick_on_ll"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:elevation="2dp"
+
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+
+                android:background="#ffffff"
+                android:id="@+id/toolbarCard"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:gravity="center_vertical"
+                        android:layout_margin="2dp"
+                        android:src="@drawable/car_one"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp" />
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_weight="0.2"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+
+                        style="?android:textAppearanceMedium"
+                        android:layout_margin="1dp"
+                        android:textColor="#000000"
+                        android:text="ALTO :MH 15 4735"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <TextView
+
+                        android:layout_margin="1dp"
+                        style="?android:textAppearanceMedium"
+                        android:text="Seats : 4 "
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+
+                        android:layout_margin="1dp"
+                        style="?android:textAppearanceMedium"
+                        android:text="13-12-2016 T 3:30 PM"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+
+                        android:layout_margin="1dp"
+                        style="?android:textAppearanceMedium"
+                        android:text="From:HAL To Trimurti Chowk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
+                <!--<LinearLayout-->
+                <!--android:layout_weight="0.2"-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+                <!---->
+                <!---->
+                <!--</LinearLayout>-->
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#d2d0d0"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            ></LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginTop="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/idSector"
+
+                style="?android:textAppearanceMedium"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="7dp"
+                android:layout_marginRight="10dp"
+                android:maxLines="5"
+                android:maxLength="160"
+                android:ellipsize="end"
+                android:text="Pratip Golesar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <!--<TextView-->
+                <!--android:id="@+id/idSubSector"-->
+
+                <!--style="?android:textAppearanceMedium"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:layout_marginBottom="7dp"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:maxLines="5"-->
+                <!--android:maxLength="160"-->
+                <!--android:ellipsize="end"-->
+                <!--android:text="N 24 CA 3/2-1 Shivshakti Nagar, Cidco, Nashik"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content" />-->
+            <TextView
+
+                style="?android:textAppearanceMedium"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="7dp"
+                android:layout_marginRight="10dp"
+                android:maxLines="5"
+                android:maxLength="160"
+                android:ellipsize="end"
+                android:text="7875198963"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+        <!--<LinearLayout-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:layout_marginRight="5dp"-->
+            <!--android:background="#d2d0d0"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1dp"-->
+            <!--&gt;</LinearLayout>-->
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginTop="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/idAddress"
+                android:layout_weight="0.3"
+                style="?android:textAppearanceMedium"
+
+                android:layout_marginBottom="7dp"
+                android:maxLines="5"
+                android:textColor="#ffffff"
+                android:maxLength="160"
+                android:ellipsize="end"
+                android:text="CALL"
+                android:background="@color/login_button"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <!--<Button-->
+            <!--android:textColor="#ffffff"-->
+            <!--android:background="@color/colorPrimary"-->
+            <!--android:layout_weight="0.3"-->
+            <!--android:id="@+id/idMobile"-->
+            <!--android:autoLink="phone"-->
+            <!--style="?android:textAppearanceMedium"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_marginBottom="7dp"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:maxLines="5"-->
+            <!--android:maxLength="160"-->
+            <!--android:ellipsize="end"-->
+            <!--android:text="Mobile No."-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content" />-->
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

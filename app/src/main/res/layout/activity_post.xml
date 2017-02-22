@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_weight="0.55"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+
+                android:layout_weight="0.2"
+                android:layout_margin="10dp"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+
+                    style="?android:textAppearanceMedium"
+                    android:layout_margin="1dp"
+                    android:textColor="#000000"
+                    android:text="Pratip Golesar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    style="?android:textAppearanceMedium"
+                    android:layout_margin="1dp"
+
+                    android:text="ALTO : MH15 4735"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    style="?android:textAppearanceMedium"
+                    android:layout_margin="1dp"
+
+                    android:text="7875198963"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="#d2d0d0"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                ></LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="0.3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                                <TextView
+
+                                    android:layout_margin="3dp"
+                                    android:text="From"
+                                    style="?android:textAppearanceSmall"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content" />
+                                <EditText
+
+                                    android:textColor="#000000"
+                                    android:hint="from where ?"
+                                    style="?android:textAppearanceMedium"
+                                    android:textColorHint="@color/place_holder"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="number"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+
+
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="0.3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+
+                        android:layout_margin="3dp"
+                        android:text="To"
+                        style="?android:textAppearanceSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <EditText
+
+                        android:textColor="#000000"
+                        android:hint="at where ?"
+                        style="?android:textAppearanceMedium"
+                        android:textColorHint="@color/place_holder"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="0.3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+
+                        android:layout_margin="3dp"
+                        android:text="Date"
+                        style="?android:textAppearanceSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <EditText
+
+                        android:textColor="#000000"
+                        android:hint="select date"
+                        style="?android:textAppearanceMedium"
+                        android:textColorHint="@color/place_holder"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+
+
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="0.3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+
+                        android:layout_margin="3dp"
+                        android:text="Time"
+                        style="?android:textAppearanceSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <EditText
+
+                        android:textColor="#000000"
+                        android:hint="select time"
+                        style="?android:textAppearanceMedium"
+                        android:textColorHint="@color/place_holder"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text4"
+                    android:layout_margin="5dp"
+                    android:text="Number of seats available"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <EditText
+
+                    android:textColor="#000000"
+                    android:hint="enter number of seats"
+                    style="?android:textAppearanceMedium"
+                    android:textColorHint="@color/place_holder"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+
+
+
+
+
+
+            <Button
+
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/idPostPost"
+                android:background="@color/login_button"
+                android:text="Post"
+                android:textColor="@color/white_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+    <!--<LinearLayout-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:background="#00FFFFFF"-->
+        <!--android:gravity="top|center_horizontal"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<com.google.android.gms.ads.AdView-->
+            <!--android:id="@+id/admob_adview"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--ads:adSize="BANNER"-->
+            <!--ads:adUnitId="@string/BannerAdd" />-->
+    <!--</LinearLayout>-->
+
+</LinearLayout>
+
+

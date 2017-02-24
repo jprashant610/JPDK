@@ -65,10 +65,12 @@ public class LoginActivity extends AppCompatActivity {
         //checking if email and passwords are empty
         if(TextUtils.isEmpty(email)){
             Toast.makeText(this,"Please enter email", Toast.LENGTH_LONG).show();
+            return;
         }
 
         if(TextUtils.isEmpty(password)){
             Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
+            return;
         }
 
         firebaseAuth.signInWithEmailAndPassword(email, password)
@@ -82,7 +84,10 @@ public class LoginActivity extends AppCompatActivity {
                             Log.w("TAG", "signin success", task.getException());
                             Toast.makeText(LoginActivity.this,"Login Successfull",Toast.LENGTH_LONG).show();
                             finish();
-                            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                           // startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
                         }else{
                             Toast.makeText(LoginActivity.this,"Login failed",Toast.LENGTH_LONG).show();
                             Log.w("TAG", "signin failed", task.getException());

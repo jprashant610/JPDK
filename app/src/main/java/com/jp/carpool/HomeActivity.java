@@ -1,26 +1,39 @@
 package com.jp.carpool;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class HomeActivity extends AppCompatActivity {
 
+
 LinearLayout post1,post2,post3,post4,post5,post6,post7,post8,post9,post10,post11,post12,post13;
+
     Button idPost;
+    Button idLogout;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         idPost= (Button) findViewById(R.id.idPost);
+        idLogout= (Button) findViewById(R.id.idLogout);
+        firebaseAuth = FirebaseAuth.getInstance();
         post1= (LinearLayout) findViewById(R.id.post1);
         post2= (LinearLayout) findViewById(R.id.post2);
         post3= (LinearLayout) findViewById(R.id.post3);
@@ -194,6 +207,28 @@ LinearLayout post1,post2,post3,post4,post5,post6,post7,post8,post9,post10,post11
         return super.onOptionsItemSelected(item);
     }
 
+    public void Logout(View V){
 
+        Toast.makeText(this,"loging out",Toast.LENGTH_LONG).show();
+
+
+        FirebaseAuth.AuthStateListener authListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user == null) {
+                    // user auth state is changed - user is null
+                    // launch login activity
+                    finish();
+                    //startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
+            }
+        };
+        firebaseAuth.addAuthStateListener(authListener);
+        firebaseAuth.getInstance().signOut();
+    }
 
 }

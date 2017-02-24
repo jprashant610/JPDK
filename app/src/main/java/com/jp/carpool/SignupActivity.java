@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -60,10 +61,23 @@ public class SignupActivity extends AppCompatActivity {
     public void Save(View V){
 
         String email = editITSID.getText().toString().trim();
-        String password  = editPassword.getText().toString().trim();
+        String password  = "651151";//editPassword.getText().toString().trim();
 
         progressDialog.setMessage("Registering Please Wait...");
         progressDialog.show();
+
+        //checking if email and passwords are empty
+        if(TextUtils.isEmpty(email)){
+            Toast.makeText(this,"Please enter email", Toast.LENGTH_LONG).show();
+            progressDialog.dismiss();
+            return;
+        }
+
+        if(TextUtils.isEmpty(password)){
+            Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
+            progressDialog.dismiss();
+            return;
+        }
 
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -73,7 +87,10 @@ public class SignupActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Toast.makeText(SignupActivity.this,"Registration Successfull",Toast.LENGTH_LONG).show();
                             finish();
-                            startActivity(new Intent(SignupActivity.this,LoginActivity.class));
+                            //startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
                         }else{
                             //display some message here
                             Toast.makeText(SignupActivity.this,"Registration Error",Toast.LENGTH_LONG).show();

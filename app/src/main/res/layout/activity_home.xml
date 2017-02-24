@@ -29,6 +29,19 @@ android:background="#edecec"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
+        <Button
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Logout"
+            android:id="@+id/idLogout"
+            android:textColor="#ffffff"
+            android:background="@color/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:onClick="logout"
+            android:onClick="Logout" />
+
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/post1"

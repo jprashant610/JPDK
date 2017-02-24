@@ -1,22 +1,52 @@
 package com.jp.carpool;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
     TextView idSignUp;
+    EditText editITSID;
+    EditText editPassword;
+    private FirebaseAuth firebaseAuth;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
-        idSignUp= (TextView) findViewById(R.id.idSignUp);
 
+        editITSID = (EditText) findViewById(R.id.editITSID);
+        editPassword = (EditText) findViewById(R.id.editPassword);
+        progressDialog = new ProgressDialog(this);
+
+        idSignUp= (TextView) findViewById(R.id.idSignUp);
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        //if getCurrentUser does not returns null
+        if(firebaseAuth.getCurrentUser() != null){
+            //that means user is already logged in
+            //so close this activity
+            Log.w("TAG", "Loged in Success");
+            finish();
+            //and open after login activity
+            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+        }
 
         idSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,9 +56,39 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-
     public void login(View v){
-        startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+        String email = editITSID.getText().toString().trim();
+        String password  = editPassword.getText().toString().trim();
+
+        progressDialog.setMessage("Registering Please Wait...");
+        progressDialog.show();
+
+        //checking if email and passwords are empty
+        if(TextUtils.isEmpty(email)){
+            Toast.makeText(this,"Please enter email", Toast.LENGTH_LONG).show();
+        }
+
+        if(TextUtils.isEmpty(password)){
+            Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
+        }
+
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        progressDialog.dismiss();
+                        //if the task is successfull
+                        if(task.isSuccessful()){
+                            //start the profile activity
+                            Log.w("TAG", "signin success", task.getException());
+                            finish();
+                            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                        }else{
+                            Log.w("TAG", "signin failed", task.getException());
+                        }
+                    }
+                });
+      //  startActivity(new Intent(LoginActivity.this,HomeActivity.class));
     }
 
 }

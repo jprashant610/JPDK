@@ -85,7 +85,8 @@
                         android:imeOptions="actionNext"
                         android:textColor="@color/white_text"
                         android:textColorHint="@color/place_holder"
-                        android:paddingLeft="5dp" />
+                        android:paddingLeft="5dp"
+                        android:text="khairnardm@gmail.com" />
 
 
                 </LinearLayout>
@@ -144,7 +145,8 @@
 
                         android:layout_weight="0.2"
                         android:hint="Password"
-                        android:paddingLeft="5dp" />
+                        android:paddingLeft="5dp"
+                        android:text="651151" />
 
 
                     <Button

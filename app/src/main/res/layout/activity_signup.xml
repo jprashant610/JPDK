@@ -256,7 +256,8 @@
                             android:textColor="@color/white_text"
                             android:textColorHint="@color/place_holder"
                             android:inputType="textEmailAddress"
-                            android:paddingLeft="5dp" />
+                            android:paddingLeft="5dp"
+                            android:id="@+id/editITSID" />
                         <!-- 4 digit pin-->
 
                     </LinearLayout>

@@ -33,9 +33,8 @@ public class LoginActivity extends AppCompatActivity {
 
         editITSID = (EditText) findViewById(R.id.editITSID);
         editPassword = (EditText) findViewById(R.id.editPassword);
-        progressDialog = new ProgressDialog(this);
-
         idSignUp= (TextView) findViewById(R.id.idSignUp);
+        progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
 
         //if getCurrentUser does not returns null
@@ -60,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         String email = editITSID.getText().toString().trim();
         String password  = editPassword.getText().toString().trim();
 
-        progressDialog.setMessage("Registering Please Wait...");
+        progressDialog.setMessage("Loging Please Wait...");
         progressDialog.show();
 
         //checking if email and passwords are empty
@@ -81,9 +80,11 @@ public class LoginActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             //start the profile activity
                             Log.w("TAG", "signin success", task.getException());
+                            Toast.makeText(LoginActivity.this,"Login Successfull",Toast.LENGTH_LONG).show();
                             finish();
                             startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                         }else{
+                            Toast.makeText(LoginActivity.this,"Login failed",Toast.LENGTH_LONG).show();
                             Log.w("TAG", "signin failed", task.getException());
                         }
                     }

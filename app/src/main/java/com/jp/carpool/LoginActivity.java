@@ -16,6 +16,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -24,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText editPassword;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         idSignUp= (TextView) findViewById(R.id.idSignUp);
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
+
 
         //if getCurrentUser does not returns null
         if(firebaseAuth.getCurrentUser() != null){
@@ -75,6 +81,7 @@ public class LoginActivity extends AppCompatActivity {
 
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @SuppressWarnings({"ThrowableResultOfMethodCallIgnored", "ConstantConditions"})
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
@@ -89,12 +96,11 @@ public class LoginActivity extends AppCompatActivity {
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
                         }else{
-                            Toast.makeText(LoginActivity.this,"Login failed",Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this,"Registration Error "+task.getException().getMessage(),Toast.LENGTH_LONG).show();
                             Log.w("TAG", "signin failed", task.getException());
                         }
                     }
                 });
       //  startActivity(new Intent(LoginActivity.this,HomeActivity.class));
     }
-
 }

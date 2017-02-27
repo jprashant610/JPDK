@@ -18,8 +18,7 @@
             >
 
 
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            <LinearLayout
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -76,7 +75,8 @@
                             android:textColor="@color/white_text"
                             android:textColorHint="@color/place_holder"
                             android:inputType="number"
-                            android:paddingLeft="5dp" />
+                            android:paddingLeft="5dp"
+                            android:id="@+id/editFullName" />
 
 
                     </LinearLayout>
@@ -137,7 +137,8 @@
                             android:textColor="@color/white_text"
                             android:textColorHint="@color/place_holder"
                             android:inputType="number"
-                            android:paddingLeft="5dp" />
+                            android:paddingLeft="5dp"
+                            android:id="@+id/editMoNo" />
 
 
                     </LinearLayout>
@@ -196,7 +197,8 @@
                             android:textColor="@color/white_text"
                             android:textColorHint="@color/place_holder"
                             android:inputType="number"
-                            android:paddingLeft="5dp" />
+                            android:paddingLeft="5dp"
+                            android:id="@+id/editLicenceNo" />
 
 
                     </LinearLayout>
@@ -391,7 +393,8 @@
                             android:textColor="@color/white_text"
                             android:textColorHint="@color/place_holder"
                             android:inputType="text"
-                            android:paddingLeft="5dp" />
+                            android:paddingLeft="5dp"
+                            android:id="@+id/editCarName" />
 
                         <!-- 4 digit pin-->
                     </LinearLayout>
@@ -450,7 +453,8 @@
                             android:textColor="@color/white_text"
                             android:textColorHint="@color/place_holder"
                             android:inputType="text"
-                            android:paddingLeft="5dp" />
+                            android:paddingLeft="5dp"
+                            android:id="@+id/editCarNo" />
 
                         <!-- 4 digit pin-->
                     </LinearLayout>
@@ -508,7 +512,8 @@
                             android:textColor="@color/white_text"
                             android:textColorHint="@color/place_holder"
                             android:inputType="number"
-                            android:paddingLeft="5dp" />
+                            android:paddingLeft="5dp"
+                            android:id="@+id/editNumberSeat" />
 
                         <!-- 4 digit pin-->
                     </LinearLayout>
@@ -566,7 +571,8 @@
                             android:textColor="@color/white_text"
                             android:textColorHint="@color/place_holder"
                             android:inputType="number"
-                            android:paddingLeft="5dp" />
+                            android:paddingLeft="5dp"
+                            android:id="@+id/editLicenceNumber" />
 
                         <!-- 4 digit pin-->
                     </LinearLayout>

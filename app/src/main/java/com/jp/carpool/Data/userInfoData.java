@@ -19,16 +19,6 @@ public class userInfoData {
     private String NumberSeat;
 
     public userInfoData() {
-        email = "0";
-        password = "0";
-        FullName = "0";
-        MoNo = "0";
-        ITSID = "0";
-        Password = "0";
-        LicenceNo = "0";
-        CarName = "0";
-        CarNo = "0";
-        NumberSeat = "0";
     }
     public String getEmail() {
         return email;

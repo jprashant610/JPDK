@@ -65,8 +65,6 @@ public class SignupActivity extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
-        mDatabase =  FirebaseDatabase.getInstance();
-        mDatabaseRef = mDatabase.getReference("users");
 
         //if getCurrentUser does not returns null
         if(firebaseAuth.getCurrentUser() != null){
@@ -96,7 +94,7 @@ public class SignupActivity extends AppCompatActivity {
         String password  = editPassword.getText().toString().trim();
 
         progressDialog.setMessage("Registering Please Wait...");
-        progressDialog.show();
+//        progressDialog.show();
 
         //checking if email and passwords are empty
         if(TextUtils.isEmpty(email)){
@@ -110,73 +108,74 @@ public class SignupActivity extends AppCompatActivity {
             progressDialog.dismiss();
             return;
         }
-
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @SuppressWarnings({"ThrowableResultOfMethodCallIgnored", "ConstantConditions"})
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        //checking if success
-                        if(task.isSuccessful()){
-                            Toast.makeText(SignupActivity.this,"Registration Successfull",Toast.LENGTH_LONG).show();
-                            wirteUserInfo();
-                            finish();
-                            //startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(intent);
-                        }else{
-                            //display some message here
-                            Toast.makeText(SignupActivity.this,"Registration Error "+task.getException().getMessage(),Toast.LENGTH_LONG).show();
+        if(validateForm()) {
+            firebaseAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @SuppressWarnings({"ThrowableResultOfMethodCallIgnored", "ConstantConditions"})
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            //checking if success
+                            if (task.isSuccessful()) {
+                                Toast.makeText(SignupActivity.this, "Registration Successfull", Toast.LENGTH_LONG).show();
+                                wirteUserInfo();
+                                finish();
+                                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                            } else {
+                                //display some message here
+                                Toast.makeText(SignupActivity.this, "Registration Error " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                            progressDialog.dismiss();
                         }
-                        progressDialog.dismiss();
-                    }
-                });
+                    });
+        }
+        else{
+            Toast.makeText(SignupActivity.this, "Please fill Detail Correctly", Toast.LENGTH_LONG).show();
+        }
     }
 
 
     public void wirteUserInfo()
     {
-        if(validateForm())
-        {
-            Log.d("TAG","User data is valid");
-            String email = editITSID.getText().toString().trim();
-            String password = editPassword.getText().toString().trim();
-            String FullName = editPassword.getText().toString().trim();
-            String MoNo = editPassword.getText().toString().trim();
-            String ITSID = editPassword.getText().toString().trim();
-            String Password = editPassword.getText().toString().trim();
-            String LicenceNo = editPassword.getText().toString().trim();
-            String CarName = editPassword.getText().toString().trim();
-            String CarNo = editPassword.getText().toString().trim();
-            String NumberSeat = editPassword.getText().toString().trim();
+        Log.d("TAG","User data is valid");
 
-            FirebaseUser user = firebaseAuth.getCurrentUser();
-            if(user == null) {
-                Log.d("TAG","Firebase user is NULL");
-                return;
-            }
-            String uid = user.getUid();
-            Log.d("TAG","User UID ="+uid);
+        String FullName = editFullName.getText().toString().trim();
+        String MoNo = editMoNo.getText().toString().trim();
+        String ITSID = editITSID.getText().toString().trim();
+        String Password = editPassword.getText().toString().trim();
+        String LicenceNo = editLicenceNo.getText().toString().trim();
+        String CarName = editCarName.getText().toString().trim();
+        String CarNo = editCarNo.getText().toString().trim();
+        String NumberSeat = editNumberSeat.getText().toString().trim();
 
-            userInfoData userData = new userInfoData();
-            userData.setEmail(email);
-            userData.setPassword(password);
-            userData.setFullName(FullName);
-            userData.setMoNo(MoNo);
-            userData.setITSID(ITSID);
-            userData.setPassword(Password);
-            userData.setLicenceNo(LicenceNo);
-            userData.setCarName(CarName);
-            userData.setCarNo(CarNo);
-            userData.setNumberSeat(NumberSeat);
+        FirebaseUser user = firebaseAuth.getCurrentUser();
 
-            mDatabaseRef.setValue(userData);
-//            Map<String, Object> childUpdates = new HashMap<>();
-//            childUpdates.put("/listItem/" + key, FullName);
-//            FirebaseDatabase.getInstance().getReference().updateChildren(childUpdates);
-
+        if(user == null) {
+            Log.d("TAG","Firebase user is NULL");
+            return;
         }
+        String uid = user.getUid();
+        Log.d("TAG","User UID ="+uid);
+
+        userInfoData userData = new userInfoData();
+        userData.setEmail(ITSID);
+        userData.setPassword(Password);
+        userData.setFullName(FullName);
+        userData.setMoNo(MoNo);
+        userData.setITSID(ITSID);
+        userData.setPassword(Password);
+        userData.setLicenceNo(LicenceNo);
+        userData.setCarName(CarName);
+        userData.setCarNo(CarNo);
+        userData.setNumberSeat(NumberSeat);
+
+
+        mDatabase = FirebaseDatabase.getInstance();
+        Log.d("TAG","db ref: "+mDatabase.getReference("users"));
+        mDatabaseRef = mDatabase.getReference("users");
+        mDatabaseRef.child(uid).setValue(userData);
     }
 
     private boolean validateForm() {

@@ -9,13 +9,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.jp.carpool.Data.postData;
+import com.jp.carpool.Data.userInfoData;
 import com.jp.carpool.R;
 import com.jp.carpool.postHelper.postHelper;
 
@@ -26,13 +31,19 @@ public class PostActivity extends AppCompatActivity {
     EditText pickDate;
     EditText pickTime;
     EditText editNumberSeat;
+    TextView textfullName;
+    TextView textCarName;
+    TextView textMono;
+
+    String uid;
+
 
     //defining firebaseauth object
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
     FirebaseDatabase mDatabase;
     DatabaseReference mDatabaseRef;
-
+    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +56,19 @@ public class PostActivity extends AppCompatActivity {
         pickTime =  (EditText)findViewById(R.id.pickTime);
         editNumberSeat =  (EditText)findViewById(R.id.editNumberSeat);
 
+        textfullName = (TextView)findViewById(R.id.textFullName);
+        textCarName = (TextView)findViewById(R.id.textCarName);
+        textMono = (TextView)findViewById(R.id.textMoNo);
+
         firebaseAuth = FirebaseAuth.getInstance();
 
+        user = firebaseAuth.getCurrentUser();
+        if(user == null) {
+            Log.d("TAG","Firebase user is NULL");
+            finish();
+        }
+        uid = user.getUid();
+        getUserDetailForPost();
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -70,14 +92,6 @@ public class PostActivity extends AppCompatActivity {
         String Date = pickDate.getText().toString().trim();
         String Time = pickTime.getText().toString().trim();
         String NumberSeat = editNumberSeat.getText().toString().trim();
-
-//Check user is not null
-        FirebaseUser user = firebaseAuth.getCurrentUser();
-        if(user == null) {
-            Log.d("TAG","Firebase user is NULL");
-            return;
-        }
-        String uid = user.getUid();
 
 // reead user input post data
         postData post = new postData();
@@ -107,22 +121,26 @@ public class PostActivity extends AppCompatActivity {
      }
 
     private boolean getUserDetailForPost(){
+        mDatabase = FirebaseDatabase.getInstance();
+        Log.d("TAG","db ref: "+mDatabase.getReference("users"));
+        mDatabaseRef = mDatabase.getReference("users");
 
-//        mDatabase.child(userId).addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//
-//                User user = dataSnapshot.getValue(User.class);
-//
-//                Log.d(TAG, "User name: " + user.getName() + ", email " + user.getEmail());
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError error) {
-//                // Failed to read value
-//                Log.w(TAG, "Failed to read value.", error.toException());
-//            }
-//        });
+        mDatabaseRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                 userInfoData user = dataSnapshot.getValue(userInfoData.class);
+                textfullName.setText(user.getFullName());
+                textCarName.setText(user.getCarName()+"-"+user.getCarNo());
+                textMono.setText(user.getMoNo());
+                Log.d("TAG", "read values from db" + user.getFullName());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.d("TAG", "Failed to read value.", error.toException());
+            }
+        });
         return true;
     }
 

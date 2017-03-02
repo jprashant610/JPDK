@@ -49,37 +49,160 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <TextView
 
-                        style="?android:textAppearanceMedium"
-                        android:layout_margin="1dp"
-                        android:textColor="#000000"
-                        android:text="ALTO :MH 15 4735"
+                    <LinearLayout
+                        android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                    <TextView
+                        android:layout_height="match_parent"
+                        android:weightSum="10">
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="Seats : 4 "
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_margin="1dp"
+                            android:textColor="#000000"
+                            android:text="ALTO\t\t:"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="7" />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_margin="1dp"
+                            android:textColor="#000000"
+                            android:text="MH 15 4735"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:id="@+id/textView2" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="match_parent"
+                        android:weightSum="10">
 
-                    <TextView
+                        <TextView
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="13-12-2016 T 3:30 PM"
+                            android:layout_margin="1dp"
+                            style="?android:textAppearanceMedium"
+                            android:text="Seats\t\t:"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="7" />
+
+                        <TextView
+                            android:layout_margin="1dp"
+                            style="?android:textAppearanceMedium"
+                            android:text="4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:id="@+id/textView4" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="match_parent"
+                        android:weightSum="10">
 
-                    <TextView
+                        <TextView
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="From:HAL To Trimurti Chowk"
+                            android:layout_margin="1dp"
+                            style="?android:textAppearanceMedium"
+                            android:text="Date\t\t\t:"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="7" />
+
+                        <TextView
+                            android:layout_margin="1dp"
+                            style="?android:textAppearanceMedium"
+                            android:text="13-2-2017"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:id="@+id/textView7" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="match_parent"
+                        android:weightSum="10">
+
+                        <TextView
+
+                            android:layout_margin="1dp"
+                            style="?android:textAppearanceMedium"
+                            android:text="Time\t\t:"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="7" />
+
+                        <TextView
+                            android:layout_margin="1dp"
+                            style="?android:textAppearanceMedium"
+                            android:text="3:30 PM"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:id="@+id/textView10" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="10">
+
+                        <TextView
+                            android:layout_margin="1dp"
+                            style="?android:textAppearanceMedium"
+                            android:text="From\t\t:"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView13"
+                            android:layout_weight="7" />
+
+                        <TextView
+                            android:layout_margin="1dp"
+                            style="?android:textAppearanceMedium"
+                            android:text="HAL"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView12"
+                            android:layout_weight="3" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="10">
+
+                        <TextView
+                            android:layout_margin="1dp"
+                            style="?android:textAppearanceMedium"
+                            android:text="To\t\t\t\t:"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView15"
+                            android:layout_weight="7" />
+
+                        <TextView
+                            android:layout_margin="1dp"
+                            style="?android:textAppearanceMedium"
+                            android:text="Gangapur Road"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView16"
+                            android:layout_weight="3" />
+                    </LinearLayout>
 
 
                 </LinearLayout>

@@ -12,7 +12,6 @@ public class userInfoData {
     private String FullName;
     private String MoNo;
     private String ITSID;
-    private String Password;
     private String LicenceNo;
     private String CarName;
     private String CarNo;

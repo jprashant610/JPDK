@@ -1,6 +1,5 @@
-package com.jp.carpool;
+package com.jp.carpool.Activity;
 
-import android.app.LauncherActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -18,24 +17,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.api.model.StringList;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.jp.carpool.Data.userInfoData;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.jp.carpool.R;
 
 public class SignupActivity extends AppCompatActivity {
-
-    private ProgressDialog progressDialog;
     //defining firebaseauth object
+    private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
     FirebaseDatabase mDatabase;
     DatabaseReference mDatabaseRef;
@@ -94,30 +83,20 @@ public class SignupActivity extends AppCompatActivity {
         String password  = editPassword.getText().toString().trim();
 
         progressDialog.setMessage("Registering Please Wait...");
-//        progressDialog.show();
+        progressDialog.show();
 
-        //checking if email and passwords are empty
-        if(TextUtils.isEmpty(email)){
-            Toast.makeText(this,"Please enter email", Toast.LENGTH_LONG).show();
-            progressDialog.dismiss();
-            return;
-        }
-
-        if(TextUtils.isEmpty(password)){
-            Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
-            progressDialog.dismiss();
-            return;
-        }
         if(validateForm()) {
             firebaseAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @SuppressWarnings({"ThrowableResultOfMethodCallIgnored", "ConstantConditions"})
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
+                            progressDialog.dismiss();
                             //checking if success
                             if (task.isSuccessful()) {
                                 Toast.makeText(SignupActivity.this, "Registration Successfull", Toast.LENGTH_LONG).show();
                                 wirteUserInfo();
+                               // progressDialog.dismiss();
                                 finish();
                                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
@@ -127,13 +106,14 @@ public class SignupActivity extends AppCompatActivity {
                                 //display some message here
                                 Toast.makeText(SignupActivity.this, "Registration Error " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                             }
-                            progressDialog.dismiss();
                         }
                     });
         }
         else{
+            progressDialog.dismiss();
             Toast.makeText(SignupActivity.this, "Please fill Detail Correctly", Toast.LENGTH_LONG).show();
         }
+      //  progressDialog.dismiss();
     }
 
 

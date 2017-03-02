@@ -10,23 +10,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <LinearLayout
-
                 android:layout_weight="0.2"
                 android:layout_margin="10dp"
                 android:layout_gravity="center_vertical"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <TextView
 
+                <TextView
                     style="?android:textAppearanceMedium"
                     android:layout_margin="1dp"
                     android:textColor="#000000"
@@ -44,16 +41,11 @@
                 <TextView
                     style="?android:textAppearanceMedium"
                     android:layout_margin="1dp"
-
                     android:text="7875198963"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
-
-
-
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_marginLeft="5dp"
@@ -62,8 +54,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 ></LinearLayout>
-
-
 
             <LinearLayout
                 android:layout_marginTop="5dp"
@@ -90,18 +80,14 @@
 
                                     android:textColor="#000000"
                                     android:hint="from where ?"
-                                    style="?android:textAppearanceMedium"
+                                    style="@android:style/TextAppearance.Material.Medium"
                                     android:textColorHint="@color/place_holder"
                                     android:imeOptions="actionNext"
                                     android:inputType="number"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content" />
-
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/editFrom" />
                 </LinearLayout>
-
-
-
-
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -118,13 +104,14 @@
                     <EditText
 
                         android:textColor="#000000"
-                        android:hint="at where ?"
+                        android:hint="To"
                         style="?android:textAppearanceMedium"
                         android:textColorHint="@color/place_holder"
                         android:imeOptions="actionNext"
                         android:inputType="number"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:id="@+id/editTo" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -159,13 +146,10 @@
                         android:imeOptions="actionNext"
                         android:inputType="number"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pickDate" />
 
                 </LinearLayout>
-
-
-
-
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -188,14 +172,11 @@
                         android:imeOptions="actionNext"
                         android:inputType="number"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:id="@+id/pickTime" />
 
                 </LinearLayout>
             </LinearLayout>
-
-
-
-
 
             <LinearLayout
                 android:layout_marginTop="5dp"
@@ -222,15 +203,11 @@
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editNumberSeat" />
 
 
             </LinearLayout>
-
-
-
-
-
 
             <Button
 
@@ -242,7 +219,8 @@
                 android:text="Post"
                 android:textColor="@color/white_text"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:onClick="onPost" />
 
 
         </LinearLayout>

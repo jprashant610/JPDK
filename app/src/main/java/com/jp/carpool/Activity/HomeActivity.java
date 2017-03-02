@@ -1,4 +1,4 @@
-package com.jp.carpool;
+package com.jp.carpool.Activity;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -6,17 +6,16 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.jp.carpool.R;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -207,11 +206,10 @@ LinearLayout post1,post2,post3,post4,post5,post6,post7,post8,post9,post10,post11
         return super.onOptionsItemSelected(item);
     }
 
+
+
     public void Logout(View V){
-
         Toast.makeText(this,"loging out",Toast.LENGTH_LONG).show();
-
-
         FirebaseAuth.AuthStateListener authListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {

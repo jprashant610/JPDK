@@ -1,8 +1,10 @@
-package com.jp.carpool;
+package com.jp.carpool.Activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.jp.carpool.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 

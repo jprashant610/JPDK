@@ -128,7 +128,7 @@ public class PostActivity extends AppCompatActivity {
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                 userInfoData user = dataSnapshot.getValue(userInfoData.class);
+                 userInfoData user = dataSnapshot.child(uid).getValue(userInfoData.class);
                 textfullName.setText(user.getFullName());
                 textCarName.setText(user.getCarName()+"-"+user.getCarNo());
                 textMono.setText(user.getMoNo());

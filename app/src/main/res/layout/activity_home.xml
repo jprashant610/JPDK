@@ -1,1116 +1,1232 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-android:background="#edecec"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:background="#edecec"
     android:id="@+id/activity_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-
-    <LinearLayout
-        android:orientation="vertical"
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/main_content"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="false">
 
-        <Button
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="Post"
-            android:id="@+id/idPost"
-            android:textColor="#ffffff"
-            android:background="@color/login_button"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <Button
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="Logout"
-            android:id="@+id/idLogout"
-            android:textColor="#ffffff"
-            android:background="@color/login_button"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:onClick="logout"
-            android:onClick="Logout" />
+            android:orientation="vertical">
 
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/post1"
-        android:orientation="vertical" android:layout_width="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-
-            android:layout_height="wrap_content">
-
-        <LinearLayout
-
-            android:background="#ffffff"
-
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:gravity="center_vertical"
-                    android:layout_margin="2dp"
-                    android:src="@drawable/car_one"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp" />
-            </LinearLayout>
-
-            <LinearLayout
-
-                android:layout_weight="0.2"
-                android:layout_margin="10dp"
-                android:layout_gravity="center_vertical"
-                android:orientation="vertical"
+            <Button
+                android:id="@+id/idPost"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/login_button"
+                android:text="Post"
+                android:textColor="#ffffff" />
 
-                    style="?android:textAppearanceMedium"
-                    android:layout_margin="1dp"
-                    android:textColor="#000000"
-                    android:text="ALTO :MH 15 4735"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-
-                    android:layout_margin="1dp"
-                    style="?android:textAppearanceMedium"
-                    android:text="Seats : 4 "
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-
-                    android:layout_margin="1dp"
-                    style="?android:textAppearanceMedium"
-                    android:text="13-12-2016 T"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-
-                    android:layout_margin="1dp"
-                    style="?android:textAppearanceMedium"
-                    android:text="From:HAL To Trimurti Chowk"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-
-            </LinearLayout>
-            <!--<LinearLayout-->
-            <!--android:layout_weight="0.2"-->
-            <!--android:layout_gravity="center_vertical"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-            <!---->
-            <!---->
-            <!--</LinearLayout>-->
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/post2"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-
-            android:background="#ffffff"
-
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:gravity="center_vertical"
-                    android:layout_margin="2dp"
-                    android:src="@drawable/car_one"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp" />
-            </LinearLayout>
-
-            <LinearLayout
-
-                android:layout_weight="0.2"
-                android:layout_margin="10dp"
-                android:layout_gravity="center_vertical"
-                android:orientation="vertical"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/post1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
 
-                    style="?android:textAppearanceMedium"
-                    android:layout_margin="1dp"
-                    android:textColor="#000000"
-                    android:text="ECOSPORT :MH 15 4735"
+                android:orientation="vertical">
+
+                <LinearLayout
+
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
 
-                    android:layout_margin="1dp"
-                    style="?android:textAppearanceMedium"
-                    android:text="Seats : 4 "
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:orientation="horizontal">
 
-                <TextView
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical">
 
-                    android:layout_margin="1dp"
-                    style="?android:textAppearanceMedium"
-                    android:text="13-12-2016 T"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_margin="2dp"
+                            android:gravity="center_vertical"
+                            android:src="@drawable/car_one" />
+                    </LinearLayout>
 
-                <TextView
+                    <LinearLayout
 
-                    android:layout_margin="1dp"
-                    style="?android:textAppearanceMedium"
-                    android:text="From:HAL To Trimurti Chowk"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.2"
+                        android:orientation="vertical">
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="ALTO :MH 15 4735"
+                            android:textColor="#000000" />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="Seats : 4 " />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="13-12-2016 T" />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="From:HAL To Trimurti Chowk" />
+
+
+                    </LinearLayout>
+                    <!--<LinearLayout-->
+                    <!--android:layout_weight="0.2"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
+                    <!---->
+                    <!---->
+                    <!--</LinearLayout>-->
+
+                </LinearLayout>
 
 
             </LinearLayout>
-            <!--<LinearLayout-->
-            <!--android:layout_weight="0.2"-->
-            <!--android:layout_gravity="center_vertical"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-            <!---->
-            <!---->
-            <!--</LinearLayout>-->
 
-        </LinearLayout>
-
-
-    </LinearLayout>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/post3"
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-
-            android:background="#ffffff"
-
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:gravity="center_vertical"
-                    android:layout_margin="2dp"
-                    android:src="@drawable/car_one"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp" />
-            </LinearLayout>
-
-            <LinearLayout
-
-                android:layout_weight="0.2"
-                android:layout_margin="10dp"
-                android:layout_gravity="center_vertical"
-                android:orientation="vertical"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/post2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
 
-                    style="?android:textAppearanceMedium"
-                    android:layout_margin="1dp"
-                    android:textColor="#000000"
-                    android:text="INNOVA :MH 15 4735"
+                <LinearLayout
+
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
 
-                    android:layout_margin="1dp"
-                    style="?android:textAppearanceMedium"
-                    android:text="Seats : 4 "
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:orientation="horizontal">
 
-                <TextView
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical">
 
-                    android:layout_margin="1dp"
-                    style="?android:textAppearanceMedium"
-                    android:text="13-12-2016 T"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_margin="2dp"
+                            android:gravity="center_vertical"
+                            android:src="@drawable/car_one" />
+                    </LinearLayout>
 
-                <TextView
+                    <LinearLayout
 
-                    android:layout_margin="1dp"
-                    style="?android:textAppearanceMedium"
-                    android:text="From:HAL To Trimurti Chowk"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.2"
+                        android:orientation="vertical">
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="ECOSPORT :MH 15 4735"
+                            android:textColor="#000000" />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="Seats : 4 " />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="13-12-2016 T" />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="From:HAL To Trimurti Chowk" />
+
+
+                    </LinearLayout>
+                    <!--<LinearLayout-->
+                    <!--android:layout_weight="0.2"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
+                    <!---->
+                    <!---->
+                    <!--</LinearLayout>-->
+
+                </LinearLayout>
 
 
             </LinearLayout>
-            <!--<LinearLayout-->
-            <!--android:layout_weight="0.2"-->
-            <!--android:layout_gravity="center_vertical"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-            <!---->
-            <!---->
-            <!--</LinearLayout>-->
 
-        </LinearLayout>
-
-
-    </LinearLayout>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/post4"
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-
-            android:background="#ffffff"
-
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:gravity="center_vertical"
-                    android:layout_margin="2dp"
-                    android:src="@drawable/car_one"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp" />
-            </LinearLayout>
-
-            <LinearLayout
-
-                android:layout_weight="0.2"
-                android:layout_margin="10dp"
-                android:layout_gravity="center_vertical"
-                android:orientation="vertical"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/post3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
 
-                    style="?android:textAppearanceMedium"
-                    android:layout_margin="1dp"
-                    android:textColor="#000000"
-                    android:text="ALTO :MH 15 4735"
+                <LinearLayout
+
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
 
-                    android:layout_margin="1dp"
-                    style="?android:textAppearanceMedium"
-                    android:text="Seats : 4 "
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:orientation="horizontal">
 
-                <TextView
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical">
 
-                    android:layout_margin="1dp"
-                    style="?android:textAppearanceMedium"
-                    android:text="13-12-2016 T"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_margin="2dp"
+                            android:gravity="center_vertical"
+                            android:src="@drawable/car_one" />
+                    </LinearLayout>
 
-                <TextView
+                    <LinearLayout
 
-                    android:layout_margin="1dp"
-                    style="?android:textAppearanceMedium"
-                    android:text="From:HAL To Trimurti Chowk"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.2"
+                        android:orientation="vertical">
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="INNOVA :MH 15 4735"
+                            android:textColor="#000000" />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="Seats : 4 " />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="13-12-2016 T" />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="From:HAL To Trimurti Chowk" />
+
+
+                    </LinearLayout>
+                    <!--<LinearLayout-->
+                    <!--android:layout_weight="0.2"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
+                    <!---->
+                    <!---->
+                    <!--</LinearLayout>-->
+
+                </LinearLayout>
 
 
             </LinearLayout>
-            <!--<LinearLayout-->
-            <!--android:layout_weight="0.2"-->
-            <!--android:layout_gravity="center_vertical"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-            <!---->
-            <!---->
-            <!--</LinearLayout>-->
 
-        </LinearLayout>
-
-
-    </LinearLayout>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/post5"
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-
-            android:background="#ffffff"
-
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:gravity="center_vertical"
-                    android:layout_margin="2dp"
-                    android:src="@drawable/car_one"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp" />
-            </LinearLayout>
-
-            <LinearLayout
-
-                android:layout_weight="0.2"
-                android:layout_margin="10dp"
-                android:layout_gravity="center_vertical"
-                android:orientation="vertical"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/post4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
 
-                    style="?android:textAppearanceMedium"
-                    android:layout_margin="1dp"
-                    android:textColor="#000000"
-                    android:text="REVA :MH 15 4735"
+                <LinearLayout
+
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
 
-                    android:layout_margin="1dp"
-                    style="?android:textAppearanceMedium"
-                    android:text="Seats : 4 "
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:orientation="horizontal">
 
-                <TextView
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical">
 
-                    android:layout_margin="1dp"
-                    style="?android:textAppearanceMedium"
-                    android:text="13-12-2016 T"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_margin="2dp"
+                            android:gravity="center_vertical"
+                            android:src="@drawable/car_one" />
+                    </LinearLayout>
 
-                <TextView
+                    <LinearLayout
 
-                    android:layout_margin="1dp"
-                    style="?android:textAppearanceMedium"
-                    android:text="From:HAL To Trimurti Chowk"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.2"
+                        android:orientation="vertical">
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="ALTO :MH 15 4735"
+                            android:textColor="#000000" />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="Seats : 4 " />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="13-12-2016 T" />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="From:HAL To Trimurti Chowk" />
+
+
+                    </LinearLayout>
+                    <!--<LinearLayout-->
+                    <!--android:layout_weight="0.2"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
+                    <!---->
+                    <!---->
+                    <!--</LinearLayout>-->
+
+                </LinearLayout>
 
 
             </LinearLayout>
-            <!--<LinearLayout-->
-            <!--android:layout_weight="0.2"-->
-            <!--android:layout_gravity="center_vertical"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-            <!---->
-            <!---->
-            <!--</LinearLayout>-->
 
-        </LinearLayout>
-
-
-    </LinearLayout>
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/post6"
-            android:orientation="vertical" android:layout_width="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-
-                android:background="#ffffff"
-
-                android:orientation="horizontal"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/post5"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:gravity="center_vertical"
-                        android:layout_margin="2dp"
-                        android:src="@drawable/car_one"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp" />
-                </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
 
                 <LinearLayout
 
-                    android:layout_weight="0.2"
-                    android:layout_margin="10dp"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
 
-                        style="?android:textAppearanceMedium"
-                        android:layout_margin="1dp"
-                        android:textColor="#000000"
-                        android:text="ECOSPORT :MH 15 4735"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_margin="2dp"
+                            android:gravity="center_vertical"
+                            android:src="@drawable/car_one" />
+                    </LinearLayout>
+
+                    <LinearLayout
+
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.2"
+                        android:orientation="vertical">
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="Seats : 4 "
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
-                    <TextView
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="REVA :MH 15 4735"
+                            android:textColor="#000000" />
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="13-12-2016 T"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
-                    <TextView
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="Seats : 4 " />
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="From:HAL To Trimurti Chowk"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="13-12-2016 T" />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="From:HAL To Trimurti Chowk" />
+
+
+                    </LinearLayout>
+                    <!--<LinearLayout-->
+                    <!--android:layout_weight="0.2"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
+                    <!---->
+                    <!---->
+                    <!--</LinearLayout>-->
 
                 </LinearLayout>
-                <!--<LinearLayout-->
-                <!--android:layout_weight="0.2"-->
-                <!--android:layout_gravity="center_vertical"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
-                <!---->
-                <!---->
-                <!--</LinearLayout>-->
+
 
             </LinearLayout>
 
-
-        </LinearLayout>
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/post7"
-            android:orientation="vertical" android:layout_width="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-
-                android:background="#ffffff"
-
-                android:orientation="horizontal"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/post6"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:gravity="center_vertical"
-                        android:layout_margin="2dp"
-                        android:src="@drawable/car_one"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp" />
-                </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
 
                 <LinearLayout
 
-                    android:layout_weight="0.2"
-                    android:layout_margin="10dp"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
 
-                        style="?android:textAppearanceMedium"
-                        android:layout_margin="1dp"
-                        android:textColor="#000000"
-                        android:text="INNOVA :MH 15 4735"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_margin="2dp"
+                            android:gravity="center_vertical"
+                            android:src="@drawable/car_one" />
+                    </LinearLayout>
+
+                    <LinearLayout
+
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.2"
+                        android:orientation="vertical">
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="Seats : 4 "
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
-                    <TextView
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="ECOSPORT :MH 15 4735"
+                            android:textColor="#000000" />
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="13-12-2016 T"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
-                    <TextView
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="Seats : 4 " />
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="From:HAL To Trimurti Chowk"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="13-12-2016 T" />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="From:HAL To Trimurti Chowk" />
+
+
+                    </LinearLayout>
+                    <!--<LinearLayout-->
+                    <!--android:layout_weight="0.2"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
+                    <!---->
+                    <!---->
+                    <!--</LinearLayout>-->
 
                 </LinearLayout>
-                <!--<LinearLayout-->
-                <!--android:layout_weight="0.2"-->
-                <!--android:layout_gravity="center_vertical"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
-                <!---->
-                <!---->
-                <!--</LinearLayout>-->
+
 
             </LinearLayout>
 
-
-        </LinearLayout>
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/post8"
-            android:orientation="vertical" android:layout_width="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-
-                android:background="#ffffff"
-
-                android:orientation="horizontal"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/post7"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:gravity="center_vertical"
-                        android:layout_margin="2dp"
-                        android:src="@drawable/car_one"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp" />
-                </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
 
                 <LinearLayout
 
-                    android:layout_weight="0.2"
-                    android:layout_margin="10dp"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
 
-                        style="?android:textAppearanceMedium"
-                        android:layout_margin="1dp"
-                        android:textColor="#000000"
-                        android:text="ALTO :MH 15 4735"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_margin="2dp"
+                            android:gravity="center_vertical"
+                            android:src="@drawable/car_one" />
+                    </LinearLayout>
+
+                    <LinearLayout
+
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.2"
+                        android:orientation="vertical">
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="Seats : 4 "
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
-                    <TextView
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="INNOVA :MH 15 4735"
+                            android:textColor="#000000" />
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="13-12-2016 T"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
-                    <TextView
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="Seats : 4 " />
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="From:HAL To Trimurti Chowk"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="13-12-2016 T" />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="From:HAL To Trimurti Chowk" />
+
+
+                    </LinearLayout>
+                    <!--<LinearLayout-->
+                    <!--android:layout_weight="0.2"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
+                    <!---->
+                    <!---->
+                    <!--</LinearLayout>-->
 
                 </LinearLayout>
-                <!--<LinearLayout-->
-                <!--android:layout_weight="0.2"-->
-                <!--android:layout_gravity="center_vertical"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
-                <!---->
-                <!---->
-                <!--</LinearLayout>-->
+
 
             </LinearLayout>
 
-
-        </LinearLayout>
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/post9"
-            android:orientation="vertical" android:layout_width="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-
-                android:background="#ffffff"
-
-                android:orientation="horizontal"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/post8"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:gravity="center_vertical"
-                        android:layout_margin="2dp"
-                        android:src="@drawable/car_one"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp" />
-                </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
 
                 <LinearLayout
 
-                    android:layout_weight="0.2"
-                    android:layout_margin="10dp"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
 
-                        style="?android:textAppearanceMedium"
-                        android:layout_margin="1dp"
-                        android:textColor="#000000"
-                        android:text="REVA :MH 15 4735"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_margin="2dp"
+                            android:gravity="center_vertical"
+                            android:src="@drawable/car_one" />
+                    </LinearLayout>
+
+                    <LinearLayout
+
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.2"
+                        android:orientation="vertical">
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="Seats : 4 "
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
-                    <TextView
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="ALTO :MH 15 4735"
+                            android:textColor="#000000" />
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="13-12-2016 T"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
-                    <TextView
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="Seats : 4 " />
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="From:HAL To Trimurti Chowk"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="13-12-2016 T" />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="From:HAL To Trimurti Chowk" />
+
+
+                    </LinearLayout>
+                    <!--<LinearLayout-->
+                    <!--android:layout_weight="0.2"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
+                    <!---->
+                    <!---->
+                    <!--</LinearLayout>-->
 
                 </LinearLayout>
-                <!--<LinearLayout-->
-                <!--android:layout_weight="0.2"-->
-                <!--android:layout_gravity="center_vertical"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
-                <!---->
-                <!---->
-                <!--</LinearLayout>-->
+
 
             </LinearLayout>
 
-
-        </LinearLayout>
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/post10"
-            android:orientation="vertical" android:layout_width="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-
-                android:background="#ffffff"
-
-                android:orientation="horizontal"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/post9"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:gravity="center_vertical"
-                        android:layout_margin="2dp"
-                        android:src="@drawable/car_one"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp" />
-                </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
 
                 <LinearLayout
 
-                    android:layout_weight="0.2"
-                    android:layout_margin="10dp"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
 
-                        style="?android:textAppearanceMedium"
-                        android:layout_margin="1dp"
-                        android:textColor="#000000"
-                        android:text="ECOSPORT :MH 15 4735"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_margin="2dp"
+                            android:gravity="center_vertical"
+                            android:src="@drawable/car_one" />
+                    </LinearLayout>
+
+                    <LinearLayout
+
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.2"
+                        android:orientation="vertical">
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="Seats : 4 "
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
-                    <TextView
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="REVA :MH 15 4735"
+                            android:textColor="#000000" />
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="13-12-2016 T"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
-                    <TextView
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="Seats : 4 " />
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="From:HAL To Trimurti Chowk"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="13-12-2016 T" />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="From:HAL To Trimurti Chowk" />
+
+
+                    </LinearLayout>
+                    <!--<LinearLayout-->
+                    <!--android:layout_weight="0.2"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
+                    <!---->
+                    <!---->
+                    <!--</LinearLayout>-->
 
                 </LinearLayout>
-                <!--<LinearLayout-->
-                <!--android:layout_weight="0.2"-->
-                <!--android:layout_gravity="center_vertical"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
-                <!---->
-                <!---->
-                <!--</LinearLayout>-->
+
 
             </LinearLayout>
 
-
-        </LinearLayout>
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/post11"
-            android:orientation="vertical" android:layout_width="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-
-                android:background="#ffffff"
-
-                android:orientation="horizontal"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/post10"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:gravity="center_vertical"
-                        android:layout_margin="2dp"
-                        android:src="@drawable/car_one"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp" />
-                </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
 
                 <LinearLayout
 
-                    android:layout_weight="0.2"
-                    android:layout_margin="10dp"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
 
-                        style="?android:textAppearanceMedium"
-                        android:layout_margin="1dp"
-                        android:textColor="#000000"
-                        android:text="INNOVA :MH 15 4735"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_margin="2dp"
+                            android:gravity="center_vertical"
+                            android:src="@drawable/car_one" />
+                    </LinearLayout>
+
+                    <LinearLayout
+
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.2"
+                        android:orientation="vertical">
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="Seats : 4 "
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
-                    <TextView
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="ECOSPORT :MH 15 4735"
+                            android:textColor="#000000" />
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="13-12-2016 T"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
-                    <TextView
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="Seats : 4 " />
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="From:HAL To Trimurti Chowk"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="13-12-2016 T" />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="From:HAL To Trimurti Chowk" />
+
+
+                    </LinearLayout>
+                    <!--<LinearLayout-->
+                    <!--android:layout_weight="0.2"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
+                    <!---->
+                    <!---->
+                    <!--</LinearLayout>-->
 
                 </LinearLayout>
-                <!--<LinearLayout-->
-                <!--android:layout_weight="0.2"-->
-                <!--android:layout_gravity="center_vertical"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
-                <!---->
-                <!---->
-                <!--</LinearLayout>-->
+
 
             </LinearLayout>
 
-
-        </LinearLayout>
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/post12"
-            android:orientation="vertical" android:layout_width="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-
-                android:background="#ffffff"
-
-                android:orientation="horizontal"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/post11"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:gravity="center_vertical"
-                        android:layout_margin="2dp"
-                        android:src="@drawable/car_one"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp" />
-                </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
 
                 <LinearLayout
 
-                    android:layout_weight="0.2"
-                    android:layout_margin="10dp"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
 
-                        style="?android:textAppearanceMedium"
-                        android:layout_margin="1dp"
-                        android:textColor="#000000"
-                        android:text="ALTO :MH 15 4735"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_margin="2dp"
+                            android:gravity="center_vertical"
+                            android:src="@drawable/car_one" />
+                    </LinearLayout>
+
+                    <LinearLayout
+
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.2"
+                        android:orientation="vertical">
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="Seats : 4 "
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
-                    <TextView
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="INNOVA :MH 15 4735"
+                            android:textColor="#000000" />
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="13-12-2016 T"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
-                    <TextView
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="Seats : 4 " />
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="From:HAL To Trimurti Chowk"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="13-12-2016 T" />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="From:HAL To Trimurti Chowk" />
+
+
+                    </LinearLayout>
+                    <!--<LinearLayout-->
+                    <!--android:layout_weight="0.2"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
+                    <!---->
+                    <!---->
+                    <!--</LinearLayout>-->
 
                 </LinearLayout>
-                <!--<LinearLayout-->
-                <!--android:layout_weight="0.2"-->
-                <!--android:layout_gravity="center_vertical"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
-                <!---->
-                <!---->
-                <!--</LinearLayout>-->
+
 
             </LinearLayout>
 
-
-        </LinearLayout>
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/post13"
-            android:orientation="vertical" android:layout_width="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-
-                android:background="#ffffff"
-
-                android:orientation="horizontal"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/post12"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:gravity="center_vertical"
-                        android:layout_margin="2dp"
-                        android:src="@drawable/car_one"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp" />
-                </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
 
                 <LinearLayout
 
-                    android:layout_weight="0.2"
-                    android:layout_margin="10dp"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
 
-                        style="?android:textAppearanceMedium"
-                        android:layout_margin="1dp"
-                        android:textColor="#000000"
-                        android:text="REVA :MH 15 4735"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_margin="2dp"
+                            android:gravity="center_vertical"
+                            android:src="@drawable/car_one" />
+                    </LinearLayout>
+
+                    <LinearLayout
+
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.2"
+                        android:orientation="vertical">
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="Seats : 4 "
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
-                    <TextView
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="ALTO :MH 15 4735"
+                            android:textColor="#000000" />
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="13-12-2016 T"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
-                    <TextView
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="Seats : 4 " />
 
-                        android:layout_margin="1dp"
-                        style="?android:textAppearanceMedium"
-                        android:text="From:HAL To Trimurti Chowk"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        <TextView
 
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="13-12-2016 T" />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="From:HAL To Trimurti Chowk" />
+
+
+                    </LinearLayout>
+                    <!--<LinearLayout-->
+                    <!--android:layout_weight="0.2"-->
+                    <!--android:layout_gravity="center_vertical"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
+                    <!---->
+                    <!---->
+                    <!--</LinearLayout>-->
 
                 </LinearLayout>
-                <!--<LinearLayout-->
-                <!--android:layout_weight="0.2"-->
-                <!--android:layout_gravity="center_vertical"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
-                <!---->
-                <!---->
-                <!--</LinearLayout>-->
+
 
             </LinearLayout>
 
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/post13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
 
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_margin="2dp"
+                            android:gravity="center_vertical"
+                            android:src="@drawable/car_one" />
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.2"
+                        android:orientation="vertical">
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="REVA :MH 15 4735"
+                            android:textColor="#000000" />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="Seats : 4 " />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="13-12-2016 T" />
+
+                        <TextView
+
+                            style="?android:textAppearanceMedium"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="1dp"
+                            android:text="From:HAL To Trimurti Chowk" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
     </ScrollView>
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:divider="@null"
+        android:id="@+id/idSwipeListview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.baoyz.swipemenulistview.SwipeMenuListView>
+
+    <com.github.clans.fab.FloatingActionMenu
+
+        android:id="@+id/menu1"
+        android:layout_marginBottom="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom|right"
+        android:paddingBottom="15dp"
+        android:paddingLeft="15dp"
+        fab:menu_labels_textColor="#ffffff"
+        fab:menu_labels_colorNormal="@color/colorPrimary"
+        android:paddingRight="15dp"
+        fab:menu_backgroundColor="@android:color/transparent"
+        fab:menu_colorNormal="@color/colorPrimary"
+
+        fab:menu_icon="@drawable/fab_add"
+        fab:menu_shadowColor="@android:color/transparent">
+
+
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/idProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_label="Profile"
+            fab:fab_colorNormal="@color/colorPrimary"
+            fab:fab_colorPressed="@color/colorPrimary"
+            android:onClick="Profile"
+            fab:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/idShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Share"
+            fab:fab_label="Share"
+            fab:fab_colorNormal="@color/colorPrimary"
+            fab:fab_colorPressed="@color/colorPrimary"
+            fab:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/idLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_label="Logout"
+            android:onClick="Logout"
+            fab:fab_colorNormal="@color/colorPrimary"
+            fab:fab_colorPressed="@color/colorPrimary"
+            fab:fab_size="mini" />
+
+    </com.github.clans.fab.FloatingActionMenu>
+</android.support.design.widget.CoordinatorLayout>
 </LinearLayout>

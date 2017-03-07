@@ -24,6 +24,8 @@ import com.jp.carpool.Data.userInfoData;
 import com.jp.carpool.R;
 import com.jp.carpool.postHelper.postHelper;
 
+import static android.widget.Toast.*;
+
 public class PostActivity extends AppCompatActivity {
     Button idPostPost;
     EditText editFrom;
@@ -36,8 +38,6 @@ public class PostActivity extends AppCompatActivity {
     TextView textMono;
 
     String uid;
-
-
     //defining firebaseauth object
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
@@ -59,6 +59,8 @@ public class PostActivity extends AppCompatActivity {
         textfullName = (TextView)findViewById(R.id.textFullName);
         textCarName = (TextView)findViewById(R.id.textCarName);
         textMono = (TextView)findViewById(R.id.textMoNo);
+
+        progressDialog = new ProgressDialog(this);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -116,7 +118,7 @@ public class PostActivity extends AppCompatActivity {
             finish();
         }
         else
-            Toast.makeText(PostActivity.this, "Please fill Detail Correctly", Toast.LENGTH_LONG).show();
+            makeText(PostActivity.this, "Please fill Detail Correctly", LENGTH_LONG).show();
 
      }
 
@@ -129,16 +131,21 @@ public class PostActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                  userInfoData user = dataSnapshot.child(uid).getValue(userInfoData.class);
-                textfullName.setText(user.getFullName());
-                textCarName.setText(user.getCarName()+"-"+user.getCarNo());
-                textMono.setText(user.getMoNo());
-                Log.d("TAG", "read values from db" + user.getFullName());
+                if(user != null) {
+                    textfullName.setText(user.getFullName());
+                    textCarName.setText(user.getCarName() + "-" + user.getCarNo());
+                    textMono.setText(user.getMoNo());
+                    Log.d("TAG", "read values from db" + user.getFullName());
+                }
+                else
+                    Log.d("TAG", "Cant reach to Server");
             }
 
             @Override
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
                 Log.d("TAG", "Failed to read value.", error.toException());
+                makeText(PostActivity.this, "Cant reach to Server", LENGTH_LONG).show();
             }
         });
         return true;

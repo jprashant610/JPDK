@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.baoyz.swipemenulistview.SwipeMenuListView;
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.jp.carpool.R;
@@ -23,16 +26,27 @@ public class HomeActivity extends AppCompatActivity {
 LinearLayout post1,post2,post3,post4,post5,post6,post7,post8,post9,post10,post11,post12,post13;
 
     Button idPost;
-    Button idLogout;
     private FirebaseAuth firebaseAuth;
+
+    FloatingActionMenu materialDesignFAM;
+    FloatingActionButton idShare,idProfile,idLogout;
+    SwipeMenuListView idListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         idPost= (Button) findViewById(R.id.idPost);
-        idLogout= (Button) findViewById(R.id.idLogout);
+        idListView= (SwipeMenuListView) findViewById(R.id.idSwipeListview);
+        materialDesignFAM = (FloatingActionMenu) findViewById(R.id.menu1);
+        idShare = (FloatingActionButton) findViewById(R.id.idShare);
+        idProfile = (FloatingActionButton) findViewById(R.id.idProfile);
+        idLogout = (FloatingActionButton) findViewById(R.id.idLogout);
+
+
         firebaseAuth = FirebaseAuth.getInstance();
+
+
         post1= (LinearLayout) findViewById(R.id.post1);
         post2= (LinearLayout) findViewById(R.id.post2);
         post3= (LinearLayout) findViewById(R.id.post3);

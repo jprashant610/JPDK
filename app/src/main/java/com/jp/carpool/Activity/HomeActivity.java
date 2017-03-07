@@ -18,7 +18,11 @@ import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.jp.carpool.Data.postData;
 import com.jp.carpool.R;
+import com.jp.carpool.postHelper.postHelper;
+
+import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -31,12 +35,14 @@ LinearLayout post1,post2,post3,post4,post5,post6,post7,post8,post9,post10,post11
     FloatingActionMenu materialDesignFAM;
     FloatingActionButton idShare,idProfile,idLogout;
     SwipeMenuListView idListView;
+    ArrayList<postData> arrLstPost = new ArrayList<postData>();
+    postHelper pstHlpr =new postHelper();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        idPost= (Button) findViewById(R.id.idPost);
+
         idListView= (SwipeMenuListView) findViewById(R.id.idSwipeListview);
         materialDesignFAM = (FloatingActionMenu) findViewById(R.id.menu1);
         idShare = (FloatingActionButton) findViewById(R.id.idShare);
@@ -45,119 +51,13 @@ LinearLayout post1,post2,post3,post4,post5,post6,post7,post8,post9,post10,post11
 
 
         firebaseAuth = FirebaseAuth.getInstance();
+        getDaywisePost();
 
+    }
 
-        post1= (LinearLayout) findViewById(R.id.post1);
-        post2= (LinearLayout) findViewById(R.id.post2);
-        post3= (LinearLayout) findViewById(R.id.post3);
-        post4= (LinearLayout) findViewById(R.id.post4);
-        post5= (LinearLayout) findViewById(R.id.post5);
-        post6= (LinearLayout) findViewById(R.id.post6);
-        post7= (LinearLayout) findViewById(R.id.post7);
-        post8= (LinearLayout) findViewById(R.id.post8);
-        post9= (LinearLayout) findViewById(R.id.post9);
-        post10= (LinearLayout) findViewById(R.id.post10);
-        post11= (LinearLayout) findViewById(R.id.post11);
-        post12= (LinearLayout) findViewById(R.id.post12);
-        post13= (LinearLayout) findViewById(R.id.post13);
-
-        idPost.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this,PostActivity.class));
-            }
-        });
-
-        post1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this,PostDetailsActivity.class));
-            }
-        });
-
-        post2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this,PostDetailsActivity.class));
-            }
-        });
-
-        post3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this,PostDetailsActivity.class));
-            }
-        });
-
-        post4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this,PostDetailsActivity.class));
-            }
-        });
-
-        post5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this,PostDetailsActivity.class));
-            }
-        });
-
-        post6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this,PostDetailsActivity.class));
-            }
-        });
-
-        post7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this,PostDetailsActivity.class));
-            }
-        });
-
-        post8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this,PostDetailsActivity.class));
-            }
-        });
-
-        post9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this,PostDetailsActivity.class));
-            }
-        });
-
-        post10.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this,PostDetailsActivity.class));
-            }
-        });
-
-        post11.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this,PostDetailsActivity.class));
-            }
-        });
-
-        post12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this,PostDetailsActivity.class));
-            }
-        });
-
-        post13.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this,PostDetailsActivity.class));
-            }
-        });
+    public void getDaywisePost()
+    {
+        arrLstPost = pstHlpr.getDayWisePost(pstHlpr.getTodayToken());
 
     }
 

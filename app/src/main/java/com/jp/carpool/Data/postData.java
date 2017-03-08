@@ -7,6 +7,7 @@ package com.jp.carpool.Data;
 public class postData {
 
     private String userId;
+    private String fullName;
     private String MoNo;
     //private String LicenceNo;
     private String CarName;
@@ -21,6 +22,13 @@ public class postData {
 
     public void postData(){
 
+    }
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
     public String getUserId() {
         return userId;

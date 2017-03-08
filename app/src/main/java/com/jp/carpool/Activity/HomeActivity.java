@@ -6,11 +6,14 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.baoyz.swipemenulistview.SwipeMenuListView;
@@ -18,16 +21,16 @@ import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.jp.carpool.Adapters.PostAdapter;
 import com.jp.carpool.Data.postData;
 import com.jp.carpool.R;
-import com.jp.carpool.postHelper.postHelper;
+import com.jp.carpool.Helpers.postHelper;
 
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
-
-
-LinearLayout post1,post2,post3,post4,post5,post6,post7,post8,post9,post10,post11,post12,post13;
 
     Button idPost;
     private FirebaseAuth firebaseAuth;
@@ -35,8 +38,10 @@ LinearLayout post1,post2,post3,post4,post5,post6,post7,post8,post9,post10,post11
     FloatingActionMenu materialDesignFAM;
     FloatingActionButton idShare,idProfile,idLogout;
     SwipeMenuListView idListView;
+    PostAdapter postAdapter;
     ArrayList<postData> arrLstPost = new ArrayList<postData>();
     postHelper pstHlpr =new postHelper();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,17 +53,20 @@ LinearLayout post1,post2,post3,post4,post5,post6,post7,post8,post9,post10,post11
         idShare = (FloatingActionButton) findViewById(R.id.idShare);
         idProfile = (FloatingActionButton) findViewById(R.id.idProfile);
         idLogout = (FloatingActionButton) findViewById(R.id.idLogout);
-
-
         firebaseAuth = FirebaseAuth.getInstance();
-        getDaywisePost();
+        postAdapter = new PostAdapter(this,arrLstPost);
+        idListView.setAdapter(postAdapter);
+      //postAdapter.notifyDataSetChanged();
+        //getDaywisePost();
 
     }
 
-    public void getDaywisePost()
-    {
-        arrLstPost = pstHlpr.getDayWisePost(pstHlpr.getTodayToken());
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        arrLstPost.clear();
+        postAdapter.notifyDataSetChanged();
+        getDaywisePost();
     }
 
     @Override
@@ -120,8 +128,22 @@ LinearLayout post1,post2,post3,post4,post5,post6,post7,post8,post9,post10,post11
         return super.onOptionsItemSelected(item);
     }
 
+/*User define Methods*/
+    public void getDaywisePost()
+    {
+       pstHlpr.getDayWisePost(pstHlpr.getTodayToken(),postAdapter,arrLstPost);
+       // postData pd = arrLstPost.get(0);
+        //  Log.v("HomeActivity","arrListPost (0.MoNo)--->"+pd.getMoNo());
+       // postAdapter = new PostAdapter(getApplicationContext(),arrLstPost);
+     //   idListView.setAdapter(postAdapter);
 
+    }
 
+    /*On Click methods for floating action button*/
+    public void Post(View V) {
+        Intent intent = new Intent(getApplicationContext(), PostActivity.class);
+        startActivity(intent);
+    }
     public void Logout(View V){
         Toast.makeText(this,"loging out",Toast.LENGTH_LONG).show();
         FirebaseAuth.AuthStateListener authListener = new FirebaseAuth.AuthStateListener() {

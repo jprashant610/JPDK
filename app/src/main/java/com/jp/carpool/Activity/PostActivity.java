@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.jp.carpool.Data.postData;
 import com.jp.carpool.Data.userInfoData;
 import com.jp.carpool.R;
-import com.jp.carpool.postHelper.postHelper;
+import com.jp.carpool.Helpers.postHelper;
 
 import static android.widget.Toast.*;
 
@@ -89,12 +88,15 @@ public class PostActivity extends AppCompatActivity {
 
         postHelper postHelper = new postHelper();
         String postId = postHelper.getPostId();
+
         String From = editFrom.getText().toString().trim();
         String To = editTo.getText().toString().trim();
         String Date = pickDate.getText().toString().trim();
         String Time = pickTime.getText().toString().trim();
         String NumberSeat = editNumberSeat.getText().toString().trim();
-
+        String fullName = textfullName.getText().toString().trim();
+        String CarName = textCarName.getText().toString().trim();
+        String Mono  = textMono.getText().toString().trim();
 // reead user input post data
         postData post = new postData();
 
@@ -105,7 +107,9 @@ public class PostActivity extends AppCompatActivity {
         post.setNumberSeat(NumberSeat);
         post.setUserId(uid);
         post.setPostId(postId);
-
+        post.setFullName(fullName);
+        post.setCarName(CarName);
+        post.setMoNo(Mono);
         Log.d("TAG","User UID ="+uid);
 // Set post ID using time of posting
         mDatabase = FirebaseDatabase.getInstance();
@@ -114,7 +118,6 @@ public class PostActivity extends AppCompatActivity {
 
         if(validateForm()) {
             postHelper.uploadPost(post);
-            getUserDetailForPost();
             finish();
         }
         else

@@ -1,4 +1,4 @@
-package com.jp.carpool.postHelper;
+package com.jp.carpool.Helpers;
 
 import android.util.Log;
 
@@ -7,15 +7,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.jp.carpool.Activity.PostActivity;
+import com.jp.carpool.Adapters.PostAdapter;
 import com.jp.carpool.Data.postData;
-import com.jp.carpool.Data.userInfoData;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.makeText;
 
 /**
@@ -74,21 +72,23 @@ public class postHelper {
         return yearString+"/"+monthString+"/"+dayString;
     }
 
-    public ArrayList<postData> getDayWisePost(String todayToken) {
-        final ArrayList<postData> arrLstpost = new ArrayList<postData>();
-                mDatabase = FirebaseDatabase.getInstance();
+    public void getDayWisePost(String todayToken, final PostAdapter postAdapter, final ArrayList<postData> arrLstPost) {
+
+        mDatabase = FirebaseDatabase.getInstance();
         Log.d("TAG","db ref: "+mDatabase.getReference("posts/"+todayToken));
         mDatabaseRef = mDatabase.getReference("posts/"+todayToken);
 
         mDatabaseRef.addValueEventListener(new ValueEventListener(){
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                ArrayList<postData> arrLstpost1 = new ArrayList<postData>();
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
                     postData post = postSnapshot.getValue(postData.class);
-                    arrLstpost1.add(post);
+                    arrLstPost.add(post);
                     Log.e("Post ID : ", post.getPostId());
                 }
+                for(int i=0;i< arrLstPost.size();i++)
+                    Log.e("Uid : ", arrLstPost.get(i).getUserId());
+                postAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -97,6 +97,6 @@ public class postHelper {
                 Log.d("TAG", "Failed to read value.");
             }
         });
-        return arrLstpost;
+
     }
 }

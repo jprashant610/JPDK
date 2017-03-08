@@ -1,6 +1,7 @@
 package com.jp.carpool.Adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +45,7 @@ public class PostAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
         ViewHolder holder = null;
-        final postData pojo = postDatas.get(position);
+        postData pojo = postDatas.get(position);
         LayoutInflater inflater = (LayoutInflater) var.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         if (convertView == null) {
@@ -52,6 +53,7 @@ public class PostAdapter extends BaseAdapter{
 
 
             holder = new ViewHolder();
+
             holder.idCarName = (TextView) convertView.findViewById(R.id.idCarName);
             convertView.setTag(holder);
         } else {
@@ -59,8 +61,8 @@ public class PostAdapter extends BaseAdapter{
         }
 
         holder.idCarName.setText(pojo.getCarName());
-
-
+        Log.d("PostAdapter","car name--->"+pojo.getCarName());
+        Log.d("PostAdapter","Uid name--->"+pojo.getUserId());
         return convertView;
     }
 

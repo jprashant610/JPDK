@@ -114,17 +114,18 @@
                                     style="?android:textAppearanceSmall"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content" />
-                                <EditText
 
-                                    android:textColor="#000000"
-                                    android:hint="from where ?"
-                                    style="@android:style/TextAppearance.Material.Medium"
-                                    android:textColorHint="@color/place_holder"
-                                    android:imeOptions="actionNext"
-                                    android:inputType="number"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/editFrom" />
+                    <EditText
+
+                        android:id="@+id/editFrom"
+                        style="@android:style/TextAppearance.Material.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="from where ?"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:textColor="#000000"
+                        android:textColorHint="@color/place_holder" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -139,17 +140,18 @@
                         style="?android:textAppearanceSmall"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
+
                     <EditText
 
-                        android:textColor="#000000"
-                        android:hint="To"
+                        android:id="@+id/editTo"
                         style="?android:textAppearanceMedium"
-                        android:textColorHint="@color/place_holder"
-                        android:imeOptions="actionNext"
-                        android:inputType="number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/editTo" />
+                        android:hint="To"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:textColor="#000000"
+                        android:textColorHint="@color/place_holder" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -175,17 +177,18 @@
                         style="?android:textAppearanceSmall"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
+
                     <EditText
 
-                        android:textColor="#000000"
-                        android:hint="select date"
+                        android:id="@+id/pickDate"
                         style="?android:textAppearanceMedium"
-                        android:textColorHint="@color/place_holder"
-                        android:imeOptions="actionNext"
-                        android:inputType="number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/pickDate" />
+                        android:hint="select date"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:textColor="#000000"
+                        android:textColorHint="@color/place_holder" />
 
                 </LinearLayout>
 
@@ -201,17 +204,18 @@
                         style="?android:textAppearanceSmall"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
+
                     <EditText
 
-                        android:textColor="#000000"
-                        android:hint="select time"
+                        android:id="@+id/pickTime"
                         style="?android:textAppearanceMedium"
-                        android:textColorHint="@color/place_holder"
-                        android:imeOptions="actionNext"
-                        android:inputType="number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/pickTime" />
+                        android:hint="select time"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:textColor="#000000"
+                        android:textColorHint="@color/place_holder" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -232,17 +236,18 @@
                     style="?android:textAppearanceSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+
                 <EditText
 
-                    android:textColor="#000000"
-                    android:hint="enter number of seats"
+                    android:id="@+id/editNumberSeat"
                     style="?android:textAppearanceMedium"
-                    android:textColorHint="@color/place_holder"
-                    android:imeOptions="actionNext"
-                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/editNumberSeat" />
+                    android:hint="enter number of seats"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#000000"
+                    android:textColorHint="@color/place_holder" />
 
 
             </LinearLayout>

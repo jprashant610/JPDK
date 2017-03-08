@@ -14,7 +14,8 @@
         android:divider="@null"
         android:id="@+id/idSwipeListview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:dividerHeight="1dp">
 
 
     </com.baoyz.swipemenulistview.SwipeMenuListView>

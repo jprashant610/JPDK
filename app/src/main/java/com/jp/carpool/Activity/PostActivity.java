@@ -130,7 +130,7 @@ public class PostActivity extends AppCompatActivity {
         Log.d("TAG","db ref: "+mDatabase.getReference("users"));
         mDatabaseRef = mDatabase.getReference("users");
 
-        mDatabaseRef.addValueEventListener(new ValueEventListener() {
+        mDatabaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                  userInfoData user = dataSnapshot.child(uid).getValue(userInfoData.class);

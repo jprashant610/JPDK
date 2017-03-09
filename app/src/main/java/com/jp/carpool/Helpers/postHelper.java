@@ -78,7 +78,7 @@ public class postHelper {
         Log.d("TAG","db ref: "+mDatabase.getReference("posts/"+todayToken));
         mDatabaseRef = mDatabase.getReference("posts/"+todayToken);
 
-        mDatabaseRef.addValueEventListener(new ValueEventListener(){
+        mDatabaseRef.addListenerForSingleValueEvent(new ValueEventListener(){
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){

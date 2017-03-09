@@ -1,6 +1,8 @@
 package com.jp.carpool.Activity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +19,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.baoyz.swipemenulistview.SwipeMenu;
+import com.baoyz.swipemenulistview.SwipeMenuCreator;
+import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
@@ -59,12 +63,63 @@ public class HomeActivity extends AppCompatActivity {
         idListView.setAdapter(postAdapter);
 
         //Handle onclick listner here remaining
-        idListView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
+        SwipeMenuCreator creator = new SwipeMenuCreator() {
+
             @Override
-            public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
-                return false;
+            public void create(SwipeMenu menu) {
+                //create an action that will be showed on swiping an item in the list
+                SwipeMenuItem item1 = new SwipeMenuItem(
+                        getApplicationContext());
+                item1.setBackground(new ColorDrawable(Color.DKGRAY));
+                // set width of an option (px)
+                item1.setWidth(200);
+                item1.setTitle("Action 1");
+                item1.setTitleSize(18);
+                item1.setTitleColor(Color.WHITE);
+                menu.addMenuItem(item1);
+
+                SwipeMenuItem item2 = new SwipeMenuItem(
+                        getApplicationContext());
+                // set item background
+                item2.setBackground(new ColorDrawable(Color.RED));
+                item2.setWidth(200);
+                item2.setTitle("Action 2");
+                item2.setTitleSize(18);
+                item2.setTitleColor(Color.WHITE);
+                menu.addMenuItem(item2);
+            }
+        };
+        //set MenuCreator
+        idListView.setMenuCreator(creator);
+        // set SwipeListener
+        idListView.setOnSwipeListener(new SwipeMenuListView.OnSwipeListener() {
+
+            @Override
+            public void onSwipeStart(int position) {
+                // swipe start
+            }
+
+            @Override
+            public void onSwipeEnd(int position) {
+                // swipe end
             }
         });
+
+        idListView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
+
+            @Override
+            public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
+               // postData value = new postAdapter.getItem(position);
+                switch (index) {
+                    case 0:
+                        Toast.makeText(getApplicationContext(), "Action 1 for ", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 1:
+                        Toast.makeText(getApplicationContext(), "Action 2 for ", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                return false;
+            }});
       //postAdapter.notifyDataSetChanged();
         //getDaywisePost();
 

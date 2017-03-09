@@ -1,17 +1,17 @@
-package com.jp.carpool;
+package com.jp.carpool.Activity;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
-public class SignupActivity extends AppCompatActivity {
+import com.jp.carpool.R;
+
+public class PostDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+        setContentView(R.layout.activity_post_details);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -25,9 +25,4 @@ public class SignupActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-    public void Save(View V){
-        startActivity(new Intent(SignupActivity.this,HomeActivity.class));
-    }
-
 }

@@ -10,50 +10,80 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/fullName">
 
             <LinearLayout
-
                 android:layout_weight="0.2"
                 android:layout_margin="10dp"
                 android:layout_gravity="center_vertical"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <TextView
 
+                <TextView
                     style="?android:textAppearanceMedium"
                     android:layout_margin="1dp"
                     android:textColor="#000000"
                     android:text="Pratip Golesar"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    style="?android:textAppearanceMedium"
-                    android:layout_margin="1dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textFullName" />
 
-                    android:text="ALTO : MH15 4735"
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="match_parent"
+                    android:weightSum="10">
 
-                <TextView
-                    style="?android:textAppearanceMedium"
-                    android:layout_margin="1dp"
+                    <TextView
+                        style="?android:textAppearanceMedium"
+                        android:layout_margin="1dp"
 
-                    android:text="7875198963"
+                        android:text="ALTO :"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6" />
+
+                    <TextView
+                        style="?android:textAppearanceMedium"
+                        android:layout_margin="1dp"
+
+                        android:text="MH41 AE 8543"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textCarName"
+                        android:layout_weight="4" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="match_parent"
+                    android:weightSum="10">
 
+                    <TextView
+                        style="?android:textAppearanceMedium"
+                        android:layout_margin="1dp"
+                        android:text="Mo. No."
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6" />
 
-
+                    <TextView
+                        style="?android:textAppearanceMedium"
+                        android:layout_margin="1dp"
+                        android:text="7875198963"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textMoNo"
+                        android:layout_weight="4" />
+                </LinearLayout>
 
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_marginLeft="5dp"
@@ -62,8 +92,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 ></LinearLayout>
-
-
 
             <LinearLayout
                 android:layout_marginTop="5dp"
@@ -86,22 +114,19 @@
                                     style="?android:textAppearanceSmall"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content" />
-                                <EditText
 
-                                    android:textColor="#000000"
-                                    android:hint="from where ?"
-                                    style="?android:textAppearanceMedium"
-                                    android:textColorHint="@color/place_holder"
-                                    android:imeOptions="actionNext"
-                                    android:inputType="number"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content" />
+                    <EditText
 
+                        android:id="@+id/editFrom"
+                        style="@android:style/TextAppearance.Material.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="from where ?"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:textColor="#000000"
+                        android:textColorHint="@color/place_holder" />
                 </LinearLayout>
-
-
-
-
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -115,16 +140,18 @@
                         style="?android:textAppearanceSmall"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
+
                     <EditText
 
-                        android:textColor="#000000"
-                        android:hint="at where ?"
+                        android:id="@+id/editTo"
                         style="?android:textAppearanceMedium"
-                        android:textColorHint="@color/place_holder"
-                        android:imeOptions="actionNext"
-                        android:inputType="number"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:hint="To"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:textColor="#000000"
+                        android:textColorHint="@color/place_holder" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -150,22 +177,20 @@
                         style="?android:textAppearanceSmall"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
+
                     <EditText
 
-                        android:textColor="#000000"
-                        android:hint="select date"
+                        android:id="@+id/pickDate"
                         style="?android:textAppearanceMedium"
-                        android:textColorHint="@color/place_holder"
-                        android:imeOptions="actionNext"
-                        android:inputType="number"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:hint="select date"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:textColor="#000000"
+                        android:textColorHint="@color/place_holder" />
 
                 </LinearLayout>
-
-
-
-
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -179,23 +204,21 @@
                         style="?android:textAppearanceSmall"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
+
                     <EditText
 
-                        android:textColor="#000000"
-                        android:hint="select time"
+                        android:id="@+id/pickTime"
                         style="?android:textAppearanceMedium"
-                        android:textColorHint="@color/place_holder"
-                        android:imeOptions="actionNext"
-                        android:inputType="number"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:hint="select time"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:textColor="#000000"
+                        android:textColorHint="@color/place_holder" />
 
                 </LinearLayout>
             </LinearLayout>
-
-
-
-
 
             <LinearLayout
                 android:layout_marginTop="5dp"
@@ -213,24 +236,21 @@
                     style="?android:textAppearanceSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+
                 <EditText
 
-                    android:textColor="#000000"
-                    android:hint="enter number of seats"
+                    android:id="@+id/editNumberSeat"
                     style="?android:textAppearanceMedium"
-                    android:textColorHint="@color/place_holder"
-                    android:imeOptions="actionNext"
-                    android:inputType="number"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:hint="enter number of seats"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="#000000"
+                    android:textColorHint="@color/place_holder" />
 
 
             </LinearLayout>
-
-
-
-
-
 
             <Button
 
@@ -242,7 +262,8 @@
                 android:text="Post"
                 android:textColor="@color/white_text"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:onClick="onPost" />
 
 
         </LinearLayout>

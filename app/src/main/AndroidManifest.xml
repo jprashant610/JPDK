@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jp.carpool">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/car_one"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".Activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -16,19 +16,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activity.LoginActivity"
             android:label="Login" />
         <activity
-            android:name=".SignupActivity"
+            android:name=".Activity.SignupActivity"
             android:label="Register" />
-        <activity android:name=".CarDetailsActivity" />
+        <activity android:name=".Activity.CarDetailsActivity" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".Activity.HomeActivity"
             android:label="Home" />
-        <activity android:name=".PostActivity"
+        <activity android:name=".Activity.PostActivity"
             android:label="Post"
             />
-        <activity android:name=".PostDetailsActivity"
+        <activity android:name=".Activity.PostDetailsActivity"
             android:label="Post details"
             ></activity>
     </application>

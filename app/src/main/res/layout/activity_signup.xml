@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white_text"
@@ -17,8 +18,7 @@
             >
 
 
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            <LinearLayout
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -74,8 +74,9 @@
                             android:imeOptions="actionNext"
                             android:textColor="@color/white_text"
                             android:textColorHint="@color/place_holder"
-                            android:inputType="number"
-                            android:paddingLeft="5dp" />
+                            android:inputType="text"
+                            android:paddingLeft="5dp"
+                            android:id="@+id/editFullName" />
 
 
                     </LinearLayout>
@@ -128,7 +129,6 @@
                         <EditText
                             android:textSize="18dp"
                             android:gravity="center_vertical"
-                            android:id="@+id/editITSIDh"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
@@ -136,8 +136,9 @@
                             android:imeOptions="actionNext"
                             android:textColor="@color/white_text"
                             android:textColorHint="@color/place_holder"
-                            android:inputType="number"
-                            android:paddingLeft="5dp" />
+                            android:inputType="phone"
+                            android:paddingLeft="5dp"
+                            android:id="@+id/editMoNo" />
 
 
                     </LinearLayout>
@@ -196,7 +197,8 @@
                             android:textColor="@color/white_text"
                             android:textColorHint="@color/place_holder"
                             android:inputType="number"
-                            android:paddingLeft="5dp" />
+                            android:paddingLeft="5dp"
+                            android:id="@+id/editLicenceNo" />
 
 
                     </LinearLayout>
@@ -256,7 +258,11 @@
                             android:textColor="@color/white_text"
                             android:textColorHint="@color/place_holder"
                             android:inputType="textEmailAddress"
-                            android:paddingLeft="5dp" />
+                            android:paddingLeft="5dp"
+                            android:id="@+id/editITSID"
+                            android:text="dhanufor@gmail.com"
+                            tools:inputType="textEmailAddress"
+                            android:autoText="false" />
                         <!-- 4 digit pin-->
 
                     </LinearLayout>
@@ -314,7 +320,9 @@
                             android:textColor="@color/white_text"
                             android:textColorHint="@color/place_holder"
                             android:inputType="number"
-                            android:paddingLeft="5dp" />
+                            android:paddingLeft="5dp"
+                            android:text="651151"
+                            android:id="@+id/editPassword" />
 
                         <!-- 4 digit pin-->
                     </LinearLayout>
@@ -385,7 +393,8 @@
                             android:textColor="@color/white_text"
                             android:textColorHint="@color/place_holder"
                             android:inputType="text"
-                            android:paddingLeft="5dp" />
+                            android:paddingLeft="5dp"
+                            android:id="@+id/editCarName" />
 
                         <!-- 4 digit pin-->
                     </LinearLayout>
@@ -444,7 +453,8 @@
                             android:textColor="@color/white_text"
                             android:textColorHint="@color/place_holder"
                             android:inputType="text"
-                            android:paddingLeft="5dp" />
+                            android:paddingLeft="5dp"
+                            android:id="@+id/editCarNo" />
 
                         <!-- 4 digit pin-->
                     </LinearLayout>
@@ -502,7 +512,8 @@
                             android:textColor="@color/white_text"
                             android:textColorHint="@color/place_holder"
                             android:inputType="number"
-                            android:paddingLeft="5dp" />
+                            android:paddingLeft="5dp"
+                            android:id="@+id/editNumberSeat" />
 
                         <!-- 4 digit pin-->
                     </LinearLayout>
@@ -560,7 +571,8 @@
                             android:textColor="@color/white_text"
                             android:textColorHint="@color/place_holder"
                             android:inputType="number"
-                            android:paddingLeft="5dp" />
+                            android:paddingLeft="5dp"
+                            android:id="@+id/editLicenceNumber" />
 
                         <!-- 4 digit pin-->
                     </LinearLayout>

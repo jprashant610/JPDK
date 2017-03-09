@@ -23,6 +23,7 @@ import java.util.ArrayList;
 
 public class PostAdapter extends BaseAdapter{
 
+    int type;
     Context var;
     ArrayList<postData> postDatas = new ArrayList<postData>();
 
@@ -88,12 +89,17 @@ public class PostAdapter extends BaseAdapter{
         {
             if(true == user.getUid().toString().equals(pojo.getUserId())) {
                 holder.outerLayout.setBackgroundColor(Color.parseColor("#ffc000"));
-             //   Log.d("PostAdapter","Match car name--->"+pojo.getCarName());
                 Log.d("PostAdapter", String.valueOf(position)+"Match Uid name--->"+pojo.getUserId());
+
+                //Set swipe menu type here
+                type = 1;
+
             }
             else {
                 holder.outerLayout.setBackgroundColor(Color.parseColor("#ffffff"));
                 Log.d("PostAdapter", String.valueOf(position) + "Not Match Uid name--->" + pojo.getUserId());
+                //Set swipe menu type here
+                type = 0;
             }
         }
         return convertView;
@@ -108,6 +114,18 @@ public class PostAdapter extends BaseAdapter{
         TextView idFrom;
         TextView idTo;
         LinearLayout outerLayout;
+    }
+
+    @Override
+    public int getViewTypeCount() {
+        // menu type count
+        return 2;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        // current menu type
+        return type;
     }
 
 

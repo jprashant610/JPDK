@@ -20,7 +20,7 @@ import static android.widget.Toast.makeText;
  * Created by dkhairnar on 2/3/2017.
  */
 
-public class postHelper {
+public class PostHelper {
     private String yearString;
     private String monthString;
     private String dayString;
@@ -34,7 +34,7 @@ public class postHelper {
     FirebaseDatabase mDatabase;
     DatabaseReference mDatabaseRef;
 
-    public postHelper(){
+    public PostHelper(){
         // create child link "posts/YYYY/MM/DD/currenttime+miliseconds"
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd.HH:mm:ss:SSS");
         String currentDateandTime = sdf.format(new java.util.Date());
@@ -81,6 +81,7 @@ public class postHelper {
         mDatabaseRef.addListenerForSingleValueEvent(new ValueEventListener(){
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                arrLstPost.clear();
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
                     postData post = postSnapshot.getValue(postData.class);
                     arrLstPost.add(post);

@@ -1,37 +1,28 @@
 package com.jp.carpool.Activity;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.baoyz.swipemenulistview.SwipeMenu;
-import com.baoyz.swipemenulistview.SwipeMenuCreator;
-import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.jp.carpool.Adapters.PostAdapter;
 import com.jp.carpool.Data.postData;
+import com.jp.carpool.Helpers.SwipperHelper;
 import com.jp.carpool.R;
-import com.jp.carpool.Helpers.postHelper;
+import com.jp.carpool.Helpers.PostHelper;
 
 import java.util.ArrayList;
 
@@ -45,8 +36,9 @@ public class HomeActivity extends AppCompatActivity {
     SwipeMenuListView idListView;
     PostAdapter postAdapter;
     ArrayList<postData> arrLstPost = new ArrayList<postData>();
-    postHelper pstHlpr =new postHelper();
-
+    PostHelper pstHlpr =new PostHelper();
+    FirebaseUser user;
+    SwipperHelper creator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,42 +53,26 @@ public class HomeActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         postAdapter = new PostAdapter(this,arrLstPost);
         idListView.setAdapter(postAdapter);
+        user = FirebaseAuth.getInstance().getCurrentUser();
 
         //Handle onclick listner here remaining
-        SwipeMenuCreator creator = new SwipeMenuCreator() {
-
-            @Override
-            public void create(SwipeMenu menu) {
-                //create an action that will be showed on swiping an item in the list
-                SwipeMenuItem item1 = new SwipeMenuItem(
-                        getApplicationContext());
-                item1.setBackground(new ColorDrawable(Color.DKGRAY));
-                // set width of an option (px)
-                item1.setWidth(200);
-                item1.setTitle("Action 1");
-                item1.setTitleSize(18);
-                item1.setTitleColor(Color.WHITE);
-                menu.addMenuItem(item1);
-
-                SwipeMenuItem item2 = new SwipeMenuItem(
-                        getApplicationContext());
-                // set item background
-                item2.setBackground(new ColorDrawable(Color.RED));
-                item2.setWidth(200);
-                item2.setTitle("Action 2");
-                item2.setTitleSize(18);
-                item2.setTitleColor(Color.WHITE);
-                menu.addMenuItem(item2);
-            }
-        };
+        creator = new SwipperHelper(this);
         //set MenuCreator
+
         idListView.setMenuCreator(creator);
+
         // set SwipeListener
         idListView.setOnSwipeListener(new SwipeMenuListView.OnSwipeListener() {
 
             @Override
             public void onSwipeStart(int position) {
                 // swipe start
+                if(arrLstPost.get(position).getUserId().toString().equals(user.getUid().toString())){
+
+                    Toast.makeText(getApplicationContext(), "User Match "+arrLstPost.get(position).getUserId().toString()+"=="+user.getUid().toString(), Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "User Not Match", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -111,10 +87,15 @@ public class HomeActivity extends AppCompatActivity {
             public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
                // postData value = new postAdapter.getItem(position);
                 switch (index) {
-                    case 0:
-                        Toast.makeText(getApplicationContext(), "Action 1 for ", Toast.LENGTH_SHORT).show();
+                    case 0: // -->confirm & edit
+                            if(arrLstPost.get(position).getUserId().toString().equals(user.getUid().toString())){
+                                Toast.makeText(getApplicationContext(), "User Match "+arrLstPost.get(position).getUserId().toString()+"=="+user.getUid().toString(), Toast.LENGTH_LONG).show();
+
+                            }else{
+                                Toast.makeText(getApplicationContext(), "User Not Match", Toast.LENGTH_SHORT).show();
+                            }
                         break;
-                    case 1:
+                    case 1:// -->Call & delete
                         Toast.makeText(getApplicationContext(), "Action 2 for ", Toast.LENGTH_SHORT).show();
                         break;
                 }
@@ -213,7 +194,6 @@ public class HomeActivity extends AppCompatActivity {
         FirebaseAuth.AuthStateListener authListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if (user == null) {
                     // user auth state is changed - user is null
                     // launch login activity

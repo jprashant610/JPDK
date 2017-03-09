@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.jp.carpool.Data.postData;
 import com.jp.carpool.Data.userInfoData;
 import com.jp.carpool.R;
-import com.jp.carpool.Helpers.postHelper;
+import com.jp.carpool.Helpers.PostHelper;
 
 import static android.widget.Toast.*;
 
@@ -86,7 +86,7 @@ public class PostActivity extends AppCompatActivity {
 
     public void onPost(View v){
 
-        postHelper postHelper = new postHelper();
+        PostHelper postHelper = new PostHelper();
         String postId = postHelper.getPostId();
 
         String From = editFrom.getText().toString().trim();

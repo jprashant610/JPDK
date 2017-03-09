@@ -37,11 +37,12 @@
             <TextView
                 android:id="@+id/lstvtextfullName"
                 style="?android:textAppearanceMedium"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
                 android:text="DK"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textSize="14sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -51,11 +52,12 @@
                 <TextView
                     android:id="@+id/textView"
                     style="?android:textAppearanceMedium"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
-                    android:text="Car\t\t\t\t:"
-                    android:textColor="#000000" />
+                    android:text="Car\t\t\t:"
+                    android:textColor="#000000"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/lstvtextCarNameNo"
@@ -64,12 +66,13 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
                     android:text="Alto - MH41 AE 8543"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
@@ -78,7 +81,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
-                    android:text="Seats\t\t:" />
+                    android:text="Seats\t:"
+                    android:textSize="14sp" />
 
                 <TextView
 
@@ -87,12 +91,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
-                    android:text="4" />
+                    android:text="4"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
@@ -101,7 +106,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
-                    android:text="Date\t\t\t:" />
+                    android:text="Date\t\t\t:"
+                    android:textSize="14sp" />
 
                 <TextView
 
@@ -110,12 +116,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
-                    android:text="13-12-2016 T" />
+                    android:text="13-12-2016 T"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
@@ -124,7 +131,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
-                    android:text="Time\t\t:" />
+                    android:text="Time\t\t:"
+                    android:textSize="14sp" />
 
                 <TextView
 
@@ -133,7 +141,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
-                    android:text="3:40" />
+                    android:text="3:40"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -148,7 +157,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
                     android:layout_weight="1"
-                    android:text="From\t\t:" />
+                    android:text="From\t\t:"
+                    android:textSize="14sp" />
 
                 <TextView
 
@@ -158,7 +168,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
                     android:layout_weight="1"
-                    android:text="Trimurti" />
+                    android:text="Trimurti"
+                    android:textSize="14sp" />
 
                 <TextView
 
@@ -168,7 +179,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
                     android:layout_weight="1"
-                    android:text="->To :" />
+                    android:text="->To :"
+                    android:textSize="14sp" />
 
                 <TextView
 
@@ -178,7 +190,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="1dp"
                     android:layout_weight="1"
-                    android:text="HAL" />
+                    android:text="HAL"
+                    android:textSize="14sp" />
             </LinearLayout>
 
 

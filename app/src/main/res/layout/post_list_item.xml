@@ -49,113 +49,223 @@
         android:text="DK"
         android:textColor="#000000"
         android:textSize="14sp" />
-
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="13">
 
      <TextView
-         android:id="@+id/textView"
+
          style="?android:textAppearanceMedium"
-         android:layout_width="wrap_content"
+         android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:layout_margin="1dp"
-         android:text="Car\t\t\t:"
-         android:textColor="#000000"
+         android:layout_weight="5"
+         android:text="Car"
          android:textSize="14sp" />
 
      <TextView
+
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:text=":"
+         android:textSize="14sp"
+         android:layout_weight="6"/>
+
+     <TextView
+
          android:id="@+id/lstvtextCarNameNo"
          style="?android:textAppearanceMedium"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:layout_margin="1dp"
-         android:text="Alto - MH41 AE 8543"
-         android:textColor="#000000"
+         android:layout_weight="2"
+         android:text="Car Name"
          android:textSize="14sp" />
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="13">
+
+     <TextView
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:layout_weight="5"
+         android:text="Seats"
+         android:textSize="14sp" />
 
      <TextView
 
          style="?android:textAppearanceMedium"
-         android:layout_width="wrap_content"
+         android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:layout_margin="1dp"
-         android:text="Seats\t:"
-         android:textSize="14sp" />
+         android:text=":"
+         android:textSize="14sp"
+         android:layout_weight="6"/>
 
      <TextView
 
          android:id="@+id/lstvtextSeatNo"
          style="?android:textAppearanceMedium"
-         android:layout_width="wrap_content"
+         android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:layout_margin="1dp"
-         android:text="4"
+         android:layout_weight="2"
+         android:text="no. of seat"
          android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="13">
 
      <TextView
 
          android:id="@+id/textView3"
          style="?android:textAppearanceMedium"
-         android:layout_width="wrap_content"
+         android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:layout_margin="1dp"
-         android:text="Date\t\t:"
+         android:layout_weight="5"
+         android:text="Date"
          android:textSize="14sp" />
+
+     <TextView
+
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:text=":"
+         android:textSize="14sp"
+         android:layout_weight="6"/>
 
      <TextView
 
          android:id="@+id/lstvtextDate"
          style="?android:textAppearanceMedium"
-         android:layout_width="wrap_content"
+         android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:layout_margin="1dp"
          android:text="13-12-2016 T"
-         android:textSize="14sp" />
+         android:textSize="14sp"
+         android:layout_weight="2"/>
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="13">
+
+     <TextView
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:layout_weight="5"
+         android:text="Time"
+         android:textSize="14sp" />
 
      <TextView
 
          style="?android:textAppearanceMedium"
-         android:layout_width="wrap_content"
+         android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:layout_margin="1dp"
-         android:text="Time\t\t:"
-         android:textSize="14sp" />
+         android:text=":"
+         android:textSize="14sp"
+         android:layout_weight="6"/>
 
      <TextView
 
          android:id="@+id/lstvtextTime"
          style="?android:textAppearanceMedium"
-         android:layout_width="wrap_content"
+         android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:layout_margin="1dp"
-         android:text="3:40"
+         android:layout_weight="2"
+         android:text="3:35 PM"
          android:textSize="14sp" />
     </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="30">
+
+     <TextView
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:text="From"
+         android:textSize="14sp"
+         android:layout_weight="5"/>
+
+     <TextView
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:layout_weight="7"
+         android:text=":"
+         android:textSize="14sp" />
+
+     <TextView
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:layout_weight="3"
+         android:text="Trimurti"
+         android:textSize="14sp" />
+
+     <TextView
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:layout_weight="5"
+         android:text="To"
+         android:textSize="14sp" />
+     <TextView
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:text=":"
+         android:textSize="14sp"
+         android:layout_weight="7"/>
+     <TextView
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:text="HAL"
+         android:textSize="14sp"
+         android:layout_weight="2"/>
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="14">
+
 
      <TextView
 
@@ -163,8 +273,8 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_margin="1dp"
-         android:layout_weight="1"
-         android:text="From\t\t:"
+         android:layout_weight="3"
+         android:text="From\t\t\t:\t\t"
          android:textSize="14sp" />
 
      <TextView
@@ -174,7 +284,7 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_margin="1dp"
-         android:layout_weight="1"
+         android:layout_weight="3"
          android:text="Trimurti"
          android:textSize="14sp" />
 
@@ -185,8 +295,8 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_margin="1dp"
-         android:layout_weight="1"
-         android:text="->To :"
+         android:layout_weight="3"
+         android:text="\tTo\t\t :\t\t"
          android:textSize="14sp" />
 
      <TextView
@@ -196,7 +306,7 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_margin="1dp"
-         android:layout_weight="1"
+         android:layout_weight="3"
          android:text="HAL"
          android:textSize="14sp" />
     </LinearLayout>

@@ -1,5 +1,7 @@
 package com.jp.carpool.Activity;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -45,12 +47,12 @@ public class HomeActivity extends AppCompatActivity {
     PostHelper pstHlpr = new PostHelper();
     FirebaseUser user;
     SwipperHelper creator;
-
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        context = this;
         idListView = (SwipeMenuListView) findViewById(R.id.idSwipeListview);
         materialDesignFAM = (FloatingActionMenu) findViewById(R.id.menu1);
         idShare = (FloatingActionButton) findViewById(R.id.idShare);
@@ -116,16 +118,19 @@ public class HomeActivity extends AppCompatActivity {
                             //   Toast.makeText(getApplicationContext(), "User Match "+arrLstPost.get(position).getUserId().toString()+"=="+user.getUid().toString(), Toast.LENGTH_LONG).show();
                             pstHlpr.deletePost(postAdapter, arrLstPost, position);
                             pstHlpr.getDayWisePost(postAdapter, arrLstPost);
+                            Toast.makeText(getApplicationContext(), "Deleting Post", Toast.LENGTH_SHORT).show();
                         } else {
                             //  Toast.makeText(getApplicationContext(), "User Not Match", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Intent.ACTION_CALL);
                             intent.setData(Uri.parse("tel:" + arrLstPost.get(index).toString()));
-                            if (PackageManager.PERMISSION_GRANTED != ActivityCompat.checkSelfPermission(HomeActivity.this, android.Manifest.permission.CALL_PHONE)) {
-                                Toast.makeText(getApplicationContext(), "Please Grant Application Call Permission", Toast.LENGTH_SHORT).show();
-                            } else
+                            Toast.makeText(getApplicationContext(), "Please Grant Application Call Permission", Toast.LENGTH_SHORT).show();
+                            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                                Toast.makeText(getApplicationContext(), "Please Enable CALL_PHONE permissions", Toast.LENGTH_SHORT).show();
+                            }
+                            else
                                 startActivity(intent);
                         }
-                        Toast.makeText(getApplicationContext(), "Action 2 for ", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getApplicationContext(), "Action 2 for", Toast.LENGTH_SHORT).show();
                         break;
                 }
                 return false;

@@ -23,9 +23,9 @@ import java.util.ArrayList;
 
 public class PostAdapter extends BaseAdapter{
 
-    int type;
-    Context var;
-    ArrayList<postData> postDatas = new ArrayList<postData>();
+    public int type;
+    public Context var;
+    public ArrayList<postData> postDatas = new ArrayList<postData>();
 
     public PostAdapter(Context var, ArrayList<postData> postDatas) {
         this.var = var;

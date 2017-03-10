@@ -7,6 +7,7 @@ package com.jp.carpool.Helpers;
         import com.baoyz.swipemenulistview.SwipeMenu;
         import com.baoyz.swipemenulistview.SwipeMenuCreator;
         import com.baoyz.swipemenulistview.SwipeMenuItem;
+        import com.baoyz.swipemenulistview.SwipeMenuLayout;
         import com.baoyz.swipemenulistview.SwipeMenuListView;
 
 /**
@@ -29,10 +30,10 @@ public class SwipperHelper implements SwipeMenuCreator {
         //create an action that will be showed on swiping an item in the list
         Swprmenu = menu;
         switch (menu.getViewType()) {
-            case 0:
+            case 0: //Menutype 1 for Others post
                    //create menu of type 0//
                     SwipeMenuItem item1 = new SwipeMenuItem(getApplicationContext());
-                    item1.setBackground(new ColorDrawable(Color.DKGRAY));
+                    item1.setBackground(new ColorDrawable(Color.parseColor("#00bcd4")));
                     // set width of an option (px)
                     item1.setWidth(200);
                     item1.setTitle("Confirm");
@@ -43,7 +44,7 @@ public class SwipperHelper implements SwipeMenuCreator {
                     SwipeMenuItem item2 = new SwipeMenuItem(
                     getApplicationContext());
                     // set item background
-                    item2.setBackground(new ColorDrawable(Color.RED));
+                    item2.setBackground(new ColorDrawable(Color.parseColor("#03a9f4")));
                     item2.setWidth(200);
                     item2.setTitle("Call");
                     item2.setTitleSize(18);
@@ -51,10 +52,10 @@ public class SwipperHelper implements SwipeMenuCreator {
                     menu.addMenuItem(item2);
 
                 break;
-            case 1:
+            case 1: //Menu type for Self Post
                 // create menu of type 1
                 SwipeMenuItem item3 = new SwipeMenuItem(getApplicationContext());
-                item3.setBackground(new ColorDrawable(Color.DKGRAY));
+                item3.setBackground(new ColorDrawable(Color.parseColor("#AED581")));
                 // set width of an option (px)
                 item3.setWidth(200);
                 item3.setTitle("Edit");
@@ -65,7 +66,7 @@ public class SwipperHelper implements SwipeMenuCreator {
                 SwipeMenuItem item4 = new SwipeMenuItem(
                         getApplicationContext());
                 // set item background
-                item4.setBackground(new ColorDrawable(Color.RED));
+                item4.setBackground(new ColorDrawable(Color.parseColor("#e57373")));
                 item4.setWidth(200);
                 item4.setTitle("Delete");
                 item4.setTitleSize(18);

@@ -1,14 +1,20 @@
 package com.jp.carpool.Activity;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -32,11 +38,11 @@ public class HomeActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
 
     FloatingActionMenu materialDesignFAM;
-    FloatingActionButton idShare,idProfile,idLogout;
+    FloatingActionButton idShare, idProfile, idLogout;
     SwipeMenuListView idListView;
     PostAdapter postAdapter;
     ArrayList<postData> arrLstPost = new ArrayList<postData>();
-    PostHelper pstHlpr =new PostHelper();
+    PostHelper pstHlpr = new PostHelper();
     FirebaseUser user;
     SwipperHelper creator;
 
@@ -45,33 +51,44 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        idListView= (SwipeMenuListView) findViewById(R.id.idSwipeListview);
+        idListView = (SwipeMenuListView) findViewById(R.id.idSwipeListview);
         materialDesignFAM = (FloatingActionMenu) findViewById(R.id.menu1);
         idShare = (FloatingActionButton) findViewById(R.id.idShare);
         idProfile = (FloatingActionButton) findViewById(R.id.idProfile);
         idLogout = (FloatingActionButton) findViewById(R.id.idLogout);
         firebaseAuth = FirebaseAuth.getInstance();
-        postAdapter = new PostAdapter(this,arrLstPost);
+        postAdapter = new PostAdapter(this, arrLstPost);
         idListView.setAdapter(postAdapter);
         user = FirebaseAuth.getInstance().getCurrentUser();
 
+/************************LIST VIEW COMPONENTS**************************/
         //Handle onclick listner here remaining
         creator = new SwipperHelper(this);
         //set MenuCreator
-
         idListView.setMenuCreator(creator);
-
         // set SwipeListener
+
+        idListView.setOnItemClickListener(new SwipeMenuListView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //Toast.makeText(getApplicationContext(), "Post Id "+arrLstPost.get(i).getPostId(), Toast.LENGTH_SHORT).show();
+                //finish();
+                Intent myintent = new Intent(HomeActivity.this, PostDetailsActivity.class);
+                myintent.putExtra("postItem", arrLstPost.get(i));
+                startActivity(myintent);
+            }
+        });
+
         idListView.setOnSwipeListener(new SwipeMenuListView.OnSwipeListener() {
 
             @Override
             public void onSwipeStart(int position) {
                 // swipe start
-                if(arrLstPost.get(position).getUserId().toString().equals(user.getUid().toString())){
-
-                    Toast.makeText(getApplicationContext(), "User Match "+arrLstPost.get(position).getUserId().toString()+"=="+user.getUid().toString(), Toast.LENGTH_LONG).show();
-                }else{
-                    Toast.makeText(getApplicationContext(), "User Not Match", Toast.LENGTH_SHORT).show();
+                if (arrLstPost.get(position).getUserId().toString().equals(user.getUid().toString())) {
+                    // Toast.makeText(getApplicationContext(), "User Match "+arrLstPost.get(position).getUserId().toString()+"=="+user.getUid().toString(), Toast.LENGTH_LONG).show();
+                } else {
+                    //  Toast.makeText(getApplicationContext(), "User Not Match", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -85,23 +102,37 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
-               // postData value = new postAdapter.getItem(position);
+                // postData value = new postAdapter.getItem(position);
                 switch (index) {
                     case 0: // -->confirm & edit
-                            if(arrLstPost.get(position).getUserId().toString().equals(user.getUid().toString())){
-                                Toast.makeText(getApplicationContext(), "User Match "+arrLstPost.get(position).getUserId().toString()+"=="+user.getUid().toString(), Toast.LENGTH_LONG).show();
-
-                            }else{
-                                Toast.makeText(getApplicationContext(), "User Not Match", Toast.LENGTH_SHORT).show();
-                            }
+                        if (arrLstPost.get(position).getUserId().toString().equals(user.getUid().toString())) {
+                            //   Toast.makeText(getApplicationContext(), "User Match "+arrLstPost.get(position).getUserId().toString()+"=="+user.getUid().toString(), Toast.LENGTH_LONG).show();
+                        } else {
+                            //  Toast.makeText(getApplicationContext(), "User Not Match", Toast.LENGTH_SHORT).show();
+                        }
                         break;
                     case 1:// -->Call & delete
+                        if (arrLstPost.get(position).getUserId().toString().equals(user.getUid().toString())) {
+                            //   Toast.makeText(getApplicationContext(), "User Match "+arrLstPost.get(position).getUserId().toString()+"=="+user.getUid().toString(), Toast.LENGTH_LONG).show();
+                            pstHlpr.deletePost(postAdapter, arrLstPost, position);
+                            pstHlpr.getDayWisePost(postAdapter, arrLstPost);
+                        } else {
+                            //  Toast.makeText(getApplicationContext(), "User Not Match", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Intent.ACTION_CALL);
+                            intent.setData(Uri.parse("tel:" + arrLstPost.get(index).toString()));
+                            if (PackageManager.PERMISSION_GRANTED != ActivityCompat.checkSelfPermission(HomeActivity.this, android.Manifest.permission.CALL_PHONE)) {
+                                Toast.makeText(getApplicationContext(), "Please Grant Application Call Permission", Toast.LENGTH_SHORT).show();
+                            } else
+                                startActivity(intent);
+                        }
                         Toast.makeText(getApplicationContext(), "Action 2 for ", Toast.LENGTH_SHORT).show();
                         break;
                 }
                 return false;
-            }});
-      //postAdapter.notifyDataSetChanged();
+            }
+        });
+/**********************End LIST VIEW COMPONENTS**********************/
+        //postAdapter.notifyDataSetChanged();
         //getDaywisePost();
 
     }
@@ -173,14 +204,14 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-/*User define Methods*/
-    public void getDaywisePost()
-    {
-       pstHlpr.getDayWisePost(pstHlpr.getTodayToken(),postAdapter,arrLstPost);
-       // postData pd = arrLstPost.get(0);
+    /*User define Methods*/
+    public void getDaywisePost() {
+        /*give (post Adapter -> for notify data update) and arrLst to helper for get data from DB*/
+        pstHlpr.getDayWisePost(postAdapter, arrLstPost);
+        // postData pd = arrLstPost.get(0);
         //  Log.v("HomeActivity","arrListPost (0.MoNo)--->"+pd.getMoNo());
-       // postAdapter = new PostAdapter(getApplicationContext(),arrLstPost);
-     //   idListView.setAdapter(postAdapter);
+        // postAdapter = new PostAdapter(getApplicationContext(),arrLstPost);
+        //   idListView.setAdapter(postAdapter);
 
     }
 
@@ -189,8 +220,16 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), PostActivity.class);
         startActivity(intent);
     }
-    public void Logout(View V){
-        Toast.makeText(this,"loging out",Toast.LENGTH_LONG).show();
+
+    public void Profile(View V) {
+
+    }
+
+    public void Share(View V) {
+    }
+
+    public void Logout(View V) {
+        Toast.makeText(this, "loging out", Toast.LENGTH_LONG).show();
         FirebaseAuth.AuthStateListener authListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -198,15 +237,20 @@ public class HomeActivity extends AppCompatActivity {
                     // user auth state is changed - user is null
                     // launch login activity
                     finish();
-                    //startActivity(new Intent(HomeActivity.this, LoginActivity.class));
-                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
+//                    startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+//                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+//                    startActivity(intent);
                 }
             }
         };
         firebaseAuth.addAuthStateListener(authListener);
         firebaseAuth.getInstance().signOut();
+        finish();
+        startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
 }

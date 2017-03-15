@@ -36,6 +36,7 @@ public class SwipperHelper implements SwipeMenuCreator {
                     item1.setBackground(new ColorDrawable(Color.parseColor("#00bcd4")));
                     // set width of an option (px)
                     item1.setWidth(200);
+                    item1.setIcon(android.R.drawable.ic_menu_add);
                     item1.setTitle("Confirm");
                     item1.setTitleSize(18);
                     item1.setTitleColor(Color.WHITE);
@@ -46,6 +47,7 @@ public class SwipperHelper implements SwipeMenuCreator {
                     // set item background
                     item2.setBackground(new ColorDrawable(Color.parseColor("#03a9f4")));
                     item2.setWidth(200);
+                    item2.setIcon(android.R.drawable.ic_menu_call);
                     item2.setTitle("Call");
                     item2.setTitleSize(18);
                     item2.setTitleColor(Color.WHITE);
@@ -58,6 +60,7 @@ public class SwipperHelper implements SwipeMenuCreator {
                 item3.setBackground(new ColorDrawable(Color.parseColor("#AED581")));
                 // set width of an option (px)
                 item3.setWidth(200);
+                item3.setIcon(android.R.drawable.ic_menu_edit);
                 item3.setTitle("Edit");
                 item3.setTitleSize(18);
                 item3.setTitleColor(Color.WHITE);
@@ -68,6 +71,7 @@ public class SwipperHelper implements SwipeMenuCreator {
                 // set item background
                 item4.setBackground(new ColorDrawable(Color.parseColor("#e57373")));
                 item4.setWidth(200);
+                item4.setIcon(android.R.drawable.ic_menu_delete);
                 item4.setTitle("Delete");
                 item4.setTitleSize(18);
                 item4.setTitleColor(Color.WHITE);

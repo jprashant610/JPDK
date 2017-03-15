@@ -60,9 +60,9 @@ public class PostAdapter extends BaseAdapter{
             holder = new ViewHolder();
             holder.outerLayout = (LinearLayout) convertView.findViewById(R.id.lstlinearLayout);
 
-            holder.idCarName = (TextView) convertView.findViewById(R.id.lstvtextCarNameNo);
+           // holder.idCarName = (TextView) convertView.findViewById(R.id.lstvtextCarNameNo);
             holder.idFullName = (TextView) convertView.findViewById(R.id.lstvtextfullName);
-            holder.idSeat = (TextView) convertView.findViewById(R.id.lstvtextSeatNo);
+           // holder.idSeat = (TextView) convertView.findViewById(R.id.lstvtextSeatNo);
             holder.idDate = (TextView) convertView.findViewById(R.id.lstvtextDate);
             holder.idTime = (TextView) convertView.findViewById(R.id.lstvtextTime);
             holder.idFrom = (TextView) convertView.findViewById(R.id.lstvtextFrom);
@@ -73,9 +73,9 @@ public class PostAdapter extends BaseAdapter{
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.idCarName.setText(pojo.getCarName());
+//        holder.idCarName.setText(pojo.getCarName());
         holder.idFullName.setText(pojo.getFullName());
-        holder.idSeat.setText(pojo.getNumberSeat());
+//        holder.idSeat.setText(pojo.getNumberSeat());
         holder.idDate.setText(pojo.getDate());
         holder.idTime.setText(pojo.getTime());
         holder.idFrom.setText(pojo.getFrom());

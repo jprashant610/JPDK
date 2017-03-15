@@ -2,7 +2,10 @@ package com.jp.carpool.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,6 +19,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.jp.carpool.Manifest;
 import com.jp.carpool.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -32,7 +36,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
-
         editITSID = (EditText) findViewById(R.id.editITSID);
         editPassword = (EditText) findViewById(R.id.editPassword);
         idSignUp= (TextView) findViewById(R.id.idSignUp);
@@ -68,11 +71,13 @@ public class LoginActivity extends AppCompatActivity {
         //checking if email and passwords are empty
         if(TextUtils.isEmpty(email)){
             Toast.makeText(this,"Please enter email", Toast.LENGTH_LONG).show();
+            progressDialog.dismiss();
             return;
         }
 
         if(TextUtils.isEmpty(password)){
             Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
+            progressDialog.dismiss();
             return;
         }
 
@@ -100,4 +105,6 @@ public class LoginActivity extends AppCompatActivity {
                 });
       //  startActivity(new Intent(LoginActivity.this,HomeActivity.class));
     }
+
+
 }

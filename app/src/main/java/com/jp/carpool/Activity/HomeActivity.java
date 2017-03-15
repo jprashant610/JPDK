@@ -9,6 +9,7 @@ import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
@@ -26,6 +27,11 @@ import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.jp.carpool.Adapters.PostAdapter;
 import com.jp.carpool.Data.postData;
 import com.jp.carpool.Helpers.SwipperHelper;
@@ -38,7 +44,7 @@ public class HomeActivity extends AppCompatActivity {
 
     Button idPost;
     private FirebaseAuth firebaseAuth;
-
+    private SwipeRefreshLayout swipeRefresh;
     FloatingActionMenu materialDesignFAM;
     FloatingActionButton idShare, idProfile, idLogout;
     SwipeMenuListView idListView;
@@ -63,6 +69,21 @@ public class HomeActivity extends AppCompatActivity {
         idListView.setAdapter(postAdapter);
         user = FirebaseAuth.getInstance().getCurrentUser();
 
+/************************Swipe to refresh COMPONENTS**************************/
+        swipeRefresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
+        swipeRefresh.setRefreshing(true);
+        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
+        {
+            @Override
+            public void onRefresh()
+            {
+                arrLstPost.clear();
+                postAdapter.notifyDataSetChanged();
+                getDaywisePost();
+                Log.i("TAG", "onRefresh called from SwipeRefreshLayout");
+            }
+        });
+
 /************************LIST VIEW COMPONENTS**************************/
         //Handle onclick listner here remaining
         creator = new SwipperHelper(this);
@@ -86,6 +107,7 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public void onSwipeStart(int position) {
+                swipeRefresh.setEnabled(false);
                 // swipe start
                 if (arrLstPost.get(position).getUserId().toString().equals(user.getUid().toString())) {
                     // Toast.makeText(getApplicationContext(), "User Match "+arrLstPost.get(position).getUserId().toString()+"=="+user.getUid().toString(), Toast.LENGTH_LONG).show();
@@ -97,7 +119,9 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onSwipeEnd(int position) {
                 // swipe end
+                swipeRefresh.setEnabled(true);
             }
+
         });
 
         idListView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
@@ -117,15 +141,14 @@ public class HomeActivity extends AppCompatActivity {
                         if (arrLstPost.get(position).getUserId().toString().equals(user.getUid().toString())) {
                             //   Toast.makeText(getApplicationContext(), "User Match "+arrLstPost.get(position).getUserId().toString()+"=="+user.getUid().toString(), Toast.LENGTH_LONG).show();
                             pstHlpr.deletePost(postAdapter, arrLstPost, position);
-                            pstHlpr.getDayWisePost(postAdapter, arrLstPost);
+                            getDaywisePost();
                             Toast.makeText(getApplicationContext(), "Deleting Post", Toast.LENGTH_SHORT).show();
                         } else {
                             //  Toast.makeText(getApplicationContext(), "User Not Match", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Intent.ACTION_CALL);
                             intent.setData(Uri.parse("tel:" + arrLstPost.get(index).toString()));
-                            Toast.makeText(getApplicationContext(), "Please Grant Application Call Permission", Toast.LENGTH_SHORT).show();
                             if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                                Toast.makeText(getApplicationContext(), "Please Enable CALL_PHONE permissions", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Please Grant Application Call Permission", Toast.LENGTH_SHORT).show();
                             }
                             else
                                 startActivity(intent);
@@ -212,11 +235,37 @@ public class HomeActivity extends AppCompatActivity {
     /*User define Methods*/
     public void getDaywisePost() {
         /*give (post Adapter -> for notify data update) and arrLst to helper for get data from DB*/
-        pstHlpr.getDayWisePost(postAdapter, arrLstPost);
+        //pstHlpr.getDayWisePost(postAdapter, arrLstPost);
         // postData pd = arrLstPost.get(0);
         //  Log.v("HomeActivity","arrListPost (0.MoNo)--->"+pd.getMoNo());
         // postAdapter = new PostAdapter(getApplicationContext(),arrLstPost);
         //   idListView.setAdapter(postAdapter);
+        FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference mDatabaseRef = mDatabase.getReference("posts/" + pstHlpr.getTodayToken());
+        swipeRefresh.setRefreshing(true);
+        mDatabaseRef.addListenerForSingleValueEvent(new ValueEventListener(){
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                arrLstPost.clear();
+                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
+                    postData post = postSnapshot.getValue(postData.class);
+                    arrLstPost.add(post);
+                    Log.e("Post ID : ", post.getPostId());
+                }
+                for(int i=0;i< arrLstPost.size();i++)
+                    Log.e("Uid : ", arrLstPost.get(i).getUserId());
+                postAdapter.notifyDataSetChanged();
+                swipeRefresh.setRefreshing(false);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error){
+                // Failed to read value
+                Log.d("TAG", "Failed to read value.");
+                swipeRefresh.setRefreshing(false);
+            }
+        });
 
     }
 

@@ -90,6 +90,7 @@ public class PostHelper {
                 for(int i=0;i< arrLstPost.size();i++)
                     Log.e("Uid : ", arrLstPost.get(i).getUserId());
                 postAdapter.notifyDataSetChanged();
+
             }
 
             @Override

@@ -248,21 +248,20 @@
 
                         <EditText
 
-                            android:textSize="18dp"
-                            android:gravity="center_vertical"
+                            android:id="@+id/editITSID"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:autoText="false"
                             android:background="@android:color/transparent"
+                            android:gravity="center_vertical"
                             android:hint="Email"
                             android:imeOptions="actionNext"
-                            android:textColor="@color/white_text"
-                            android:textColorHint="@color/place_holder"
                             android:inputType="textEmailAddress"
                             android:paddingLeft="5dp"
-                            android:id="@+id/editITSID"
-                            android:text="dhanufor@gmail.com"
-                            tools:inputType="textEmailAddress"
-                            android:autoText="false" />
+                            android:textColor="@color/white_text"
+                            android:textColorHint="@color/place_holder"
+                            android:textSize="18dp"
+                            tools:inputType="textEmailAddress" />
                         <!-- 4 digit pin-->
 
                     </LinearLayout>
@@ -310,19 +309,18 @@
 
 
                         <EditText
-                            android:textSize="18dp"
-                            android:gravity="center_vertical"
+                            android:id="@+id/editPassword"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
+                            android:gravity="center_vertical"
                             android:hint="Password"
                             android:imeOptions="actionNext"
+                            android:inputType="textPassword"
+                            android:paddingLeft="5dp"
                             android:textColor="@color/white_text"
                             android:textColorHint="@color/place_holder"
-                            android:inputType="number"
-                            android:paddingLeft="5dp"
-                            android:text="651151"
-                            android:id="@+id/editPassword" />
+                            android:textSize="18dp" />
 
                         <!-- 4 digit pin-->
                     </LinearLayout>

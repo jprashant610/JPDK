@@ -9,7 +9,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -36,6 +38,8 @@ public class SignupActivity extends AppCompatActivity {
     EditText editCarName;
     EditText editCarNo;
     EditText editNumberSeat;
+    CheckBox chkIsHaveCar;
+    LinearLayout carDetailView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,10 +55,13 @@ public class SignupActivity extends AppCompatActivity {
          editCarName = (EditText) findViewById(R.id.editCarName);
          editCarNo = (EditText) findViewById(R.id.editCarNo);
          editNumberSeat = (EditText) findViewById(R.id.editNumberSeat);
-
+        chkIsHaveCar = (CheckBox)findViewById(R.id.chkIsHaveCar);
+        carDetailView  = (LinearLayout)findViewById(R.id.carDetailView);
+        carDetailView.setVisibility(LinearLayout.GONE);
         progressDialog = new ProgressDialog(this);
-        firebaseAuth = FirebaseAuth.getInstance();
 
+
+        firebaseAuth = FirebaseAuth.getInstance();
         //if getCurrentUser does not returns null
         if(firebaseAuth.getCurrentUser() != null){
             //that means user is already logged in
@@ -64,6 +71,20 @@ public class SignupActivity extends AppCompatActivity {
             //and open profile activity
             startActivity(new Intent(getApplicationContext(), HomeActivity.class));
         }
+
+        chkIsHaveCar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(chkIsHaveCar.isChecked()){
+                    carDetailView.setVisibility(LinearLayout.VISIBLE);
+                }else{
+                    carDetailView.setVisibility(LinearLayout.GONE);
+                }
+
+            }
+        });
+
+
     }
 
 
@@ -129,7 +150,7 @@ public class SignupActivity extends AppCompatActivity {
         String CarName = editCarName.getText().toString().trim();
         String CarNo = editCarNo.getText().toString().trim();
         String NumberSeat = editNumberSeat.getText().toString().trim();
-
+        boolean IsCar = chkIsHaveCar.isChecked();
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
         if(user == null) {
@@ -150,6 +171,7 @@ public class SignupActivity extends AppCompatActivity {
         userData.setCarName(CarName);
         userData.setCarNo(CarNo);
         userData.setNumberSeat(NumberSeat);
+        userData.setIsCar(IsCar);
 
 
         mDatabase = FirebaseDatabase.getInstance();
@@ -198,6 +220,30 @@ public class SignupActivity extends AppCompatActivity {
             editLicenceNo.setError(null);
         }
 
+        if(chkIsHaveCar.isChecked())
+        {
+            if (TextUtils.isEmpty(editCarName.getText().toString())) {
+                editCarName.setError("Required");
+                result = false;
+            } else {
+                editCarName.setError(null);
+            }
+
+            if (TextUtils.isEmpty(editCarNo.getText().toString())) {
+                editCarNo.setError("Required");
+                result = false;
+            } else {
+                editCarNo.setError(null);
+            }
+
+            if (TextUtils.isEmpty(editNumberSeat.getText().toString())) {
+                editNumberSeat.setError("Required");
+                result = false;
+            } else {
+                editNumberSeat.setError(null);
+            }
+
+        }
         return result;
     }
 

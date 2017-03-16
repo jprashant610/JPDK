@@ -34,15 +34,19 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.jp.carpool.Adapters.PostAdapter;
 import com.jp.carpool.Data.postData;
+import com.jp.carpool.Data.userInfoData;
 import com.jp.carpool.Helpers.SwipperHelper;
 import com.jp.carpool.R;
 import com.jp.carpool.Helpers.PostHelper;
 
 import java.util.ArrayList;
 
+import static android.widget.Toast.LENGTH_LONG;
+import static android.widget.Toast.makeText;
+
 public class HomeActivity extends AppCompatActivity {
 
-    Button idPost;
+    FloatingActionButton idPost;
     private FirebaseAuth firebaseAuth;
     private SwipeRefreshLayout swipeRefresh;
     FloatingActionMenu materialDesignFAM;
@@ -54,6 +58,9 @@ public class HomeActivity extends AppCompatActivity {
     FirebaseUser user;
     SwipperHelper creator;
     Context context;
+    FirebaseDatabase mDatabase;
+    DatabaseReference mDatabaseRef;
+    userInfoData currentUserData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +68,7 @@ public class HomeActivity extends AppCompatActivity {
         context = this;
         idListView = (SwipeMenuListView) findViewById(R.id.idSwipeListview);
         materialDesignFAM = (FloatingActionMenu) findViewById(R.id.menu1);
+        idPost = (FloatingActionButton)findViewById(R.id.idPost);
         idShare = (FloatingActionButton) findViewById(R.id.idShare);
         idProfile = (FloatingActionButton) findViewById(R.id.idProfile);
         idLogout = (FloatingActionButton) findViewById(R.id.idLogout);
@@ -68,7 +76,12 @@ public class HomeActivity extends AppCompatActivity {
         postAdapter = new PostAdapter(this, arrLstPost);
         idListView.setAdapter(postAdapter);
         user = FirebaseAuth.getInstance().getCurrentUser();
-
+/*************************Check user is present and  have Car*********************************/
+        if(user == null) {
+            Logout(null);
+        }
+        idPost.setVisibility(FloatingActionButton.GONE);
+        getCurrentUserDetail();
 /************************Swipe to refresh COMPONENTS**************************/
         swipeRefresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
         swipeRefresh.setRefreshing(true);
@@ -232,7 +245,39 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /*User define Methods*/
+/*******************************User define Methods*********************************/
+
+private boolean getCurrentUserDetail(){
+    mDatabase = FirebaseDatabase.getInstance();
+    Log.d("TAG","db ref: "+mDatabase.getReference("users"));
+    mDatabaseRef = mDatabase.getReference("users");
+
+    mDatabaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            currentUserData = dataSnapshot.child(user.getUid()).getValue(userInfoData.class);
+            if(user != null) {
+                Log.d("TAG", "Read Current user Data " +currentUserData.getFullName());
+                if(currentUserData.getIsCar())
+                {
+                    idPost.setVisibility(FloatingActionButton.VISIBLE);
+                }
+            }
+            else
+                Log.d("TAG", "Cant reach to Server");
+        }
+
+        @Override
+        public void onCancelled(DatabaseError error) {
+            // Failed to read value
+            Log.d("TAG", "Failed to read value.", error.toException());
+            makeText(HomeActivity.this, "Cant reach to Server", LENGTH_LONG).show();
+        }
+    });
+    return true;
+}
+
+
     public void getDaywisePost() {
         /*give (post Adapter -> for notify data update) and arrLst to helper for get data from DB*/
         //pstHlpr.getDayWisePost(postAdapter, arrLstPost);
@@ -240,8 +285,8 @@ public class HomeActivity extends AppCompatActivity {
         //  Log.v("HomeActivity","arrListPost (0.MoNo)--->"+pd.getMoNo());
         // postAdapter = new PostAdapter(getApplicationContext(),arrLstPost);
         //   idListView.setAdapter(postAdapter);
-        FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference mDatabaseRef = mDatabase.getReference("posts/" + pstHlpr.getTodayToken());
+        mDatabase = FirebaseDatabase.getInstance();
+        mDatabaseRef = mDatabase.getReference("posts/" + pstHlpr.getTodayToken());
         swipeRefresh.setRefreshing(true);
         mDatabaseRef.addListenerForSingleValueEvent(new ValueEventListener(){
             @Override
@@ -271,8 +316,14 @@ public class HomeActivity extends AppCompatActivity {
 
     /*On Click methods for floating action button*/
     public void Post(View V) {
-        Intent intent = new Intent(getApplicationContext(), PostActivity.class);
-        startActivity(intent);
+
+//        Intent intent = new Intent(getApplicationContext(), PostActivity.class);
+//        startActivity(intent);
+
+        Intent myintent = new Intent(HomeActivity.this, PostActivity.class);
+        myintent.putExtra("currentUserData", currentUserData);
+        startActivity(myintent);
+
     }
 
     public void Profile(View V) {

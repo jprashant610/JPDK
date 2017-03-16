@@ -187,18 +187,18 @@
 
 
                         <EditText
-                            android:textSize="18dp"
-                            android:gravity="center_vertical"
+                            android:id="@+id/editLicenceNo"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
+                            android:gravity="center_vertical"
                             android:hint="Licence Number"
                             android:imeOptions="actionNext"
-                            android:textColor="@color/white_text"
-                            android:textColorHint="@color/place_holder"
                             android:inputType="number"
                             android:paddingLeft="5dp"
-                            android:id="@+id/editLicenceNo" />
+                            android:textColor="@color/white_text"
+                            android:textColorHint="@color/place_holder"
+                            android:textSize="18dp" />
 
 
                     </LinearLayout>
@@ -341,243 +341,252 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
-                <LinearLayout
-
+                <CheckBox
+                    android:id="@+id/chkIsHaveCar"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="5dp"
-
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="@dimen/widget_margin"
-                    android:layout_marginRight="@dimen/widget_margin"
-                    android:background="@color/colorPrimary"
-
-                    android:orientation="horizontal">
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-
-                        android:layout_weight=".2"
-                        android:gravity="center"
-                        android:padding="5dp"
-                        android:orientation="vertical">
-
-                        <ImageView
-
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/email_icon" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.2"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-
-                        <EditText
-                            android:textSize="18dp"
-                            android:gravity="center_vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@android:color/transparent"
-                            android:hint="Car Name (Optional)"
-                            android:imeOptions="actionNext"
-                            android:textColor="@color/white_text"
-                            android:textColorHint="@color/place_holder"
-                            android:inputType="text"
-                            android:paddingLeft="5dp"
-                            android:id="@+id/editCarName" />
-
-                        <!-- 4 digit pin-->
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="9dp"
+                    android:paddingLeft="5dp"
+                    android:text="Do You Have Car?" />
 
                 <LinearLayout
-
+                    android:id="@+id/carDetailView"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="5dp"
-
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="@dimen/widget_margin"
-                    android:layout_marginRight="@dimen/widget_margin"
-                    android:background="@color/colorPrimary"
-
-                    android:orientation="horizontal">
-
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
 
-                        android:layout_weight=".2"
-                        android:gravity="center"
-                        android:padding="5dp"
-                        android:orientation="vertical">
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_horizontal"
 
-                        <ImageView
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
 
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/email_icon" />
-                    </LinearLayout>
+                        android:background="@color/colorPrimary"
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.2"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
 
 
-                        <EditText
-                            android:textSize="18dp"
-                            android:gravity="center_vertical"
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:background="@android:color/transparent"
-                            android:hint="Car Number(Optional)"
-                            android:imeOptions="actionNext"
-                            android:textColor="@color/white_text"
-                            android:textColorHint="@color/place_holder"
-                            android:inputType="text"
-                            android:paddingLeft="5dp"
-                            android:id="@+id/editCarNo" />
 
-                        <!-- 4 digit pin-->
-                    </LinearLayout>
+                            android:layout_weight=".2"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="5dp">
 
+                            <ImageView
 
-                </LinearLayout>
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/email_icon" />
+                        </LinearLayout>
 
-                <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="5dp"
-
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="@dimen/widget_margin"
-                    android:layout_marginRight="@dimen/widget_margin"
-                    android:background="@color/colorPrimary"
-
-                    android:orientation="horizontal">
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-
-                        android:layout_weight=".2"
-                        android:gravity="center"
-                        android:padding="5dp"
-                        android:orientation="vertical">
-
-                        <ImageView
-
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/email_icon" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.2"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-
-                        <EditText
-                            android:textSize="18dp"
-                            android:gravity="center_vertical"
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:background="@android:color/transparent"
-                            android:hint="Number of seats (Optional)"
-                            android:imeOptions="actionNext"
-                            android:textColor="@color/white_text"
-                            android:textColorHint="@color/place_holder"
-                            android:inputType="number"
-                            android:paddingLeft="5dp"
-                            android:id="@+id/editNumberSeat" />
+                            android:layout_weight="1.2"
+                            android:gravity="center"
+                            android:orientation="vertical">
 
-                        <!-- 4 digit pin-->
+
+                            <EditText
+                                android:id="@+id/editCarName"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@android:color/transparent"
+                                android:gravity="center_vertical"
+                                android:hint="Car Name"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:paddingLeft="5dp"
+                                android:textColor="@color/white_text"
+                                android:textColorHint="@color/place_holder"
+                                android:textSize="18dp" />
+
+                            <!-- 4 digit pin-->
+                        </LinearLayout>
+
+
                     </LinearLayout>
 
 
-                </LinearLayout>
-
-                <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="5dp"
-
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="@dimen/widget_margin"
-                    android:layout_marginRight="@dimen/widget_margin"
-                    android:background="@color/colorPrimary"
-
-                    android:orientation="horizontal">
-
-
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
 
-                        android:layout_weight=".2"
-                        android:gravity="center"
-                        android:padding="5dp"
-                        android:orientation="vertical">
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_horizontal"
 
-                        <ImageView
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
 
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/email_icon" />
-                    </LinearLayout>
+                        android:background="@color/colorPrimary"
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.2"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
 
 
-                        <EditText
-                            android:textSize="18dp"
-                            android:gravity="center_vertical"
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:background="@android:color/transparent"
-                            android:hint="Licence Number (Optional)"
-                            android:imeOptions="actionNext"
-                            android:textColor="@color/white_text"
-                            android:textColorHint="@color/place_holder"
-                            android:inputType="number"
-                            android:paddingLeft="5dp"
-                            android:id="@+id/editLicenceNumber" />
 
-                        <!-- 4 digit pin-->
+                            android:layout_weight=".2"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="5dp">
+
+                            <ImageView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/email_icon" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.2"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+
+                            <EditText
+                                android:id="@+id/editCarNo"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@android:color/transparent"
+                                android:gravity="center_vertical"
+                                android:hint="Car Number"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:paddingLeft="5dp"
+                                android:textColor="@color/white_text"
+                                android:textColorHint="@color/place_holder"
+                                android:textSize="18dp" />
+
+                            <!-- 4 digit pin-->
+                        </LinearLayout>
+
+
                     </LinearLayout>
 
+                    <LinearLayout
 
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_horizontal"
+
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+
+                        android:background="@color/colorPrimary"
+
+                        android:orientation="horizontal">
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+
+                            android:layout_weight=".2"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="5dp">
+
+                            <ImageView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/email_icon" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.2"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+
+                            <EditText
+                                android:id="@+id/editNumberSeat"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@android:color/transparent"
+                                android:gravity="center_vertical"
+                                android:hint="Number of seats"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:paddingLeft="5dp"
+                                android:textColor="@color/white_text"
+                                android:textColorHint="@color/place_holder"
+                                android:textSize="18dp" />
+
+                            <!-- 4 digit pin-->
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_horizontal"
+
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+
+                        android:background="@color/colorPrimary"
+
+                        android:orientation="horizontal">
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+
+                            android:layout_weight=".2"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="5dp">
+
+                            <ImageView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/email_icon" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.2"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+
+                            <EditText
+                                android:id="@+id/editLicenceNumber"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@android:color/transparent"
+                                android:gravity="center_vertical"
+                                android:hint="Licence Number"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:paddingLeft="5dp"
+                                android:textColor="@color/white_text"
+                                android:textColorHint="@color/place_holder"
+                                android:textSize="18dp" />
+
+                            <!-- 4 digit pin-->
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
-
 
 
 

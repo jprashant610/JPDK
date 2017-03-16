@@ -27,6 +27,7 @@ public class PostDetailsActivity extends AppCompatActivity {
     TextView textFullName;
     TextView textMoNo;
     TextView textCar;
+    TextView textCarNumber;
     TextView textNumberSeat;
     TextView textDate;
     TextView textTime;
@@ -46,6 +47,7 @@ public class PostDetailsActivity extends AppCompatActivity {
         textFullName = (TextView) findViewById(R.id.textFullName);
         textMoNo = (TextView) findViewById(R.id.textMoNo);
         textCar = (TextView) findViewById(R.id.textCar);
+        textCarNumber = (TextView) findViewById(R.id.textCarNumber);
         textNumberSeat = (TextView) findViewById(R.id.textNumberSeat);
         textDate = (TextView) findViewById(R.id.textDate);
         textTime = (TextView) findViewById(R.id.textTime);
@@ -69,6 +71,7 @@ public class PostDetailsActivity extends AppCompatActivity {
             textFullName.setText(post.getFullName());
             textMoNo.setText(post.getMoNo());
             textCar.setText(post.getCarName());
+            textCarNumber.setText(post.getCarNo());
             textNumberSeat.setText(post.getNumberSeat());
             textDate.setText(post.getDate());
             textTime.setText(post.getTime());

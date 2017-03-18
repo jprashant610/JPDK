@@ -32,10 +32,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessagingService;
+import com.google.firebase.messaging.RemoteMessage;
 import com.jp.carpool.Adapters.PostAdapter;
 import com.jp.carpool.Data.postData;
 import com.jp.carpool.Data.userInfoData;
 import com.jp.carpool.Helpers.SwipperHelper;
+import com.jp.carpool.NotificationServer.NotificationSender;
 import com.jp.carpool.R;
 import com.jp.carpool.Helpers.PostHelper;
 
@@ -82,6 +85,32 @@ public class HomeActivity extends AppCompatActivity {
         }
         idPost.setVisibility(FloatingActionButton.GONE);
         getCurrentUserDetail();
+/************************NotificationReceiver*********************************/
+        FirebaseMessagingService msg = new FirebaseMessagingService(){
+            @Override
+            public void onMessageReceived(RemoteMessage remoteMessage) {
+                // ...
+
+                // TODO(developer): Handle FCM messages here.
+                // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
+                Log.d("HomeActivity", "From: " + remoteMessage.getFrom());
+
+                // Check if message contains a data payload.
+                if (remoteMessage.getData().size() > 0) {
+                    Log.d("HomeActivity", "Message data payload: " + remoteMessage.getData());
+                }
+
+                // Check if message contains a notification payload.
+                if (remoteMessage.getNotification() != null) {
+                    Log.d("HomeActivity", "Message Notification Body: " + remoteMessage.getNotification().getBody());
+                }
+
+                // Also if you intend on generating your own notifications as a result of a received FCM
+                // message, here is where that should be initiated. See sendNotification method below.
+            }
+        };
+
+
 /************************Swipe to refresh COMPONENTS**************************/
         swipeRefresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
         swipeRefresh.setRefreshing(true);
@@ -327,7 +356,8 @@ private boolean getCurrentUserDetail(){
     }
 
     public void Profile(View V) {
-
+        NotificationSender notifyMe = new NotificationSender();
+        notifyMe.sendNotification();
     }
 
     public void Share(View V) {

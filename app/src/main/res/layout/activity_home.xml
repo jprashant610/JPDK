@@ -7,9 +7,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <com.baoyz.swipemenulistview.SwipeMenuListView
         android:divider="@null"
         android:id="@+id/idSwipeListview"
@@ -20,64 +27,64 @@
 
     </com.baoyz.swipemenulistview.SwipeMenuListView>
 
-    <com.github.clans.fab.FloatingActionMenu
+        </android.support.v4.widget.SwipeRefreshLayout>
 
-        android:id="@+id/menu1"
-        android:layout_marginBottom="40dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="bottom|right"
-        android:paddingBottom="15dp"
-        android:paddingLeft="15dp"
-        fab:menu_labels_textColor="#ffffff"
-        fab:menu_labels_colorNormal="@color/colorPrimary"
-        android:paddingRight="15dp"
-        fab:menu_backgroundColor="@android:color/transparent"
-        fab:menu_colorNormal="@color/colorPrimary"
+        <com.github.clans.fab.FloatingActionMenu
 
-        fab:menu_icon="@drawable/fab_add"
-        fab:menu_shadowColor="@android:color/transparent">
+            android:id="@+id/menu1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|right"
+            android:paddingBottom="15dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            fab:menu_backgroundColor="@android:color/transparent"
+            fab:menu_colorNormal="@color/colorPrimary"
+            fab:menu_icon="@drawable/fab_add"
+            fab:menu_labels_colorNormal="@color/colorPrimary"
+            fab:menu_labels_textColor="#ffffff"
+            fab:menu_shadowColor="@android:color/transparent">
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/idPost"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="Post"
-            fab:fab_colorNormal="@color/colorPrimary"
-            fab:fab_colorPressed="@color/colorPrimary"
-            fab:fab_label="Post"
-            fab:fab_size="mini" />
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/idPost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="Post"
+                fab:fab_colorNormal="@color/colorPrimary"
+                fab:fab_colorPressed="@color/colorPrimary"
+                fab:fab_label="Post"
+                fab:fab_size="mini" />
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/idProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            fab:fab_label="Profile"
-            fab:fab_colorNormal="@color/colorPrimary"
-            fab:fab_colorPressed="@color/colorPrimary"
-            android:onClick="Profile"
-            fab:fab_size="mini" />
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/idProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="Profile"
+                fab:fab_colorNormal="@color/colorPrimary"
+                fab:fab_colorPressed="@color/colorPrimary"
+                fab:fab_label="Profile"
+                fab:fab_size="mini" />
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/idShare"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="Share"
-            fab:fab_label="Share"
-            fab:fab_colorNormal="@color/colorPrimary"
-            fab:fab_colorPressed="@color/colorPrimary"
-            fab:fab_size="mini" />
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/idShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="Share"
+                fab:fab_colorNormal="@color/colorPrimary"
+                fab:fab_colorPressed="@color/colorPrimary"
+                fab:fab_label="Share"
+                fab:fab_size="mini" />
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/idLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            fab:fab_label="Logout"
-            android:onClick="Logout"
-            fab:fab_colorNormal="@color/colorPrimary"
-            fab:fab_colorPressed="@color/colorPrimary"
-            fab:fab_size="mini" />
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/idLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="Logout"
+                fab:fab_colorNormal="@color/colorPrimary"
+                fab:fab_colorPressed="@color/colorPrimary"
+                fab:fab_label="Logout"
+                fab:fab_size="mini" />
 
-    </com.github.clans.fab.FloatingActionMenu>
+        </com.github.clans.fab.FloatingActionMenu>
     </FrameLayout>
 </LinearLayout>

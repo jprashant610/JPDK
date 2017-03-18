@@ -23,8 +23,9 @@ import java.util.ArrayList;
 
 public class PostAdapter extends BaseAdapter{
 
-    Context var;
-    ArrayList<postData> postDatas = new ArrayList<postData>();
+    public int type;
+    public Context var;
+    public ArrayList<postData> postDatas = new ArrayList<postData>();
 
     public PostAdapter(Context var, ArrayList<postData> postDatas) {
         this.var = var;
@@ -59,9 +60,9 @@ public class PostAdapter extends BaseAdapter{
             holder = new ViewHolder();
             holder.outerLayout = (LinearLayout) convertView.findViewById(R.id.lstlinearLayout);
 
-            holder.idCarName = (TextView) convertView.findViewById(R.id.lstvtextCarNameNo);
+           // holder.idCarName = (TextView) convertView.findViewById(R.id.lstvtextCarNameNo);
             holder.idFullName = (TextView) convertView.findViewById(R.id.lstvtextfullName);
-            holder.idSeat = (TextView) convertView.findViewById(R.id.lstvtextSeatNo);
+           // holder.idSeat = (TextView) convertView.findViewById(R.id.lstvtextSeatNo);
             holder.idDate = (TextView) convertView.findViewById(R.id.lstvtextDate);
             holder.idTime = (TextView) convertView.findViewById(R.id.lstvtextTime);
             holder.idFrom = (TextView) convertView.findViewById(R.id.lstvtextFrom);
@@ -72,9 +73,9 @@ public class PostAdapter extends BaseAdapter{
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.idCarName.setText(pojo.getCarName());
+//        holder.idCarName.setText(pojo.getCarName());
         holder.idFullName.setText(pojo.getFullName());
-        holder.idSeat.setText(pojo.getNumberSeat());
+//        holder.idSeat.setText(pojo.getNumberSeat());
         holder.idDate.setText(pojo.getDate());
         holder.idTime.setText(pojo.getTime());
         holder.idFrom.setText(pojo.getFrom());
@@ -88,12 +89,17 @@ public class PostAdapter extends BaseAdapter{
         {
             if(true == user.getUid().toString().equals(pojo.getUserId())) {
                 holder.outerLayout.setBackgroundColor(Color.parseColor("#ffc000"));
-             //   Log.d("PostAdapter","Match car name--->"+pojo.getCarName());
                 Log.d("PostAdapter", String.valueOf(position)+"Match Uid name--->"+pojo.getUserId());
+
+                //Set swipe menu type here
+                type = 1;
+
             }
             else {
                 holder.outerLayout.setBackgroundColor(Color.parseColor("#ffffff"));
                 Log.d("PostAdapter", String.valueOf(position) + "Not Match Uid name--->" + pojo.getUserId());
+                //Set swipe menu type here
+                type = 0;
             }
         }
         return convertView;
@@ -108,6 +114,18 @@ public class PostAdapter extends BaseAdapter{
         TextView idFrom;
         TextView idTo;
         LinearLayout outerLayout;
+    }
+
+    @Override
+    public int getViewTypeCount() {
+        // menu type count
+        return 2;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        // current menu type
+        return type;
     }
 
 

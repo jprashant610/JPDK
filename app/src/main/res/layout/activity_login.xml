@@ -75,18 +75,17 @@
 
 
                     <EditText
-                        android:textSize="18dp"
-                        android:gravity="center_vertical"
                         android:id="@+id/editITSID"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
+                        android:gravity="center_vertical"
                         android:hint="Username"
                         android:imeOptions="actionNext"
+                        android:paddingLeft="5dp"
                         android:textColor="@color/white_text"
                         android:textColorHint="@color/place_holder"
-                        android:paddingLeft="5dp"
-                        android:text="khairnardm@gmail.com" />
+                        android:textSize="18dp" />
 
 
                 </LinearLayout>

@@ -20,7 +20,7 @@ import static android.widget.Toast.makeText;
  * Created by dkhairnar on 2/3/2017.
  */
 
-public class postHelper {
+public class PostHelper {
     private String yearString;
     private String monthString;
     private String dayString;
@@ -34,7 +34,7 @@ public class postHelper {
     FirebaseDatabase mDatabase;
     DatabaseReference mDatabaseRef;
 
-    public postHelper(){
+    public PostHelper(){
         // create child link "posts/YYYY/MM/DD/currenttime+miliseconds"
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd.HH:mm:ss:SSS");
         String currentDateandTime = sdf.format(new java.util.Date());
@@ -72,15 +72,16 @@ public class postHelper {
         return yearString+"/"+monthString+"/"+dayString;
     }
 
-    public void getDayWisePost(String todayToken, final PostAdapter postAdapter, final ArrayList<postData> arrLstPost) {
+    public void getDayWisePost(final PostAdapter postAdapter, final ArrayList<postData> arrLstPost) {
 
         mDatabase = FirebaseDatabase.getInstance();
-        Log.d("TAG","db ref: "+mDatabase.getReference("posts/"+todayToken));
-        mDatabaseRef = mDatabase.getReference("posts/"+todayToken);
+        Log.d("TAG","db ref: "+mDatabase.getReference("posts/"+getTodayToken()));
+        mDatabaseRef = mDatabase.getReference("posts/"+getTodayToken());
 
         mDatabaseRef.addListenerForSingleValueEvent(new ValueEventListener(){
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                arrLstPost.clear();
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()){
                     postData post = postSnapshot.getValue(postData.class);
                     arrLstPost.add(post);
@@ -89,6 +90,7 @@ public class postHelper {
                 for(int i=0;i< arrLstPost.size();i++)
                     Log.e("Uid : ", arrLstPost.get(i).getUserId());
                 postAdapter.notifyDataSetChanged();
+
             }
 
             @Override
@@ -99,4 +101,44 @@ public class postHelper {
         });
 
     }
+
+    public void getSinglePost(String postId)
+    {
+        mDatabase = FirebaseDatabase.getInstance();
+        Log.d("TAG","db ref: "+mDatabase.getReference("posts/"+getTodayToken()+"/"+postId));
+        mDatabaseRef = mDatabase.getReference("posts/"+getTodayToken()+"/"+postId);
+        mDatabaseRef.addListenerForSingleValueEvent(new ValueEventListener(){
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                postData post = dataSnapshot.getValue(postData.class);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public void deletePost(final PostAdapter postAdapter, final ArrayList<postData> arrLst, final int position) {
+        mDatabase = FirebaseDatabase.getInstance();
+        mDatabaseRef = mDatabase.getReference("posts/"+getTodayToken()+"/"+arrLst.get(position).getPostId().toString());
+
+        mDatabaseRef.addListenerForSingleValueEvent(new ValueEventListener(){
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                dataSnapshot.getRef().removeValue();
+                Log.d("TAG","Post Deleted"+postId);
+                arrLst.remove(position);
+                postAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.d("TAG","Post Not Deleted"+postId);
+            }
+        });
+    }
+
+
 }

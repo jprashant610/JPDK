@@ -24,14 +24,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    style="?android:textAppearanceMedium"
-                    android:layout_margin="1dp"
-                    android:textColor="#000000"
-                    android:text="Pratip Golesar"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textFullName" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+                        style="?android:textAppearanceMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="1dp"
+                        android:layout_weight="6"
+                        android:text="Owner:" />
+
+                    <TextView
+                        android:id="@+id/textFullName"
+                        style="?android:textAppearanceMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="1dp"
+                        android:layout_weight="4"
+                        android:text="null"
+                        android:textColor="#000000" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -41,22 +57,21 @@
 
                     <TextView
                         style="?android:textAppearanceMedium"
-                        android:layout_margin="1dp"
-
-                        android:text="ALTO :"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="6" />
+                        android:layout_margin="1dp"
+                        android:layout_weight="6"
+                        android:text="Car Model :" />
 
                     <TextView
+                        android:id="@+id/textCarName"
                         style="?android:textAppearanceMedium"
-                        android:layout_margin="1dp"
 
-                        android:text="MH41 AE 8543"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textCarName"
-                        android:layout_weight="4" />
+                        android:layout_margin="1dp"
+                        android:layout_weight="4"
+                        android:text="null" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -74,13 +89,13 @@
                         android:layout_weight="6" />
 
                     <TextView
+                        android:id="@+id/textMoNo"
                         style="?android:textAppearanceMedium"
-                        android:layout_margin="1dp"
-                        android:text="7875198963"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textMoNo"
-                        android:layout_weight="4" />
+                        android:layout_margin="1dp"
+                        android:layout_weight="4"
+                        android:text="null" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -121,7 +136,7 @@
                         style="@android:style/TextAppearance.Material.Medium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="from where ?"
+                        android:hint="from?"
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         android:textColor="#000000"
@@ -147,7 +162,7 @@
                         style="?android:textAppearanceMedium"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="To"
+                        android:hint="To?"
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         android:textColor="#000000"

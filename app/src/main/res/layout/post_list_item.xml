@@ -3,196 +3,285 @@
     android:layout_margin="10dp"
     android:layout_height="wrap_content">
 
-    <LinearLayout
+ <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+     android:id="@+id/card_view"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="3dp"
+     android:layout_marginBottom="3dp"
+     card_view:cardCornerRadius="8dp">
 
-        android:id="@+id/lstlinearLayout"
+  <LinearLayout
+      android:id="@+id/lstlinearLayout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="#ffffff"
+      android:orientation="horizontal">
 
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center_vertical">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="2dp"
+        android:gravity="center_vertical"
+        android:src="@drawable/car_one" />
+   </LinearLayout>
+
+   <LinearLayout
+
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center_vertical"
+       android:layout_margin="10dp"
+       android:layout_weight="0.2"
+       android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/lstvtextfullName"
+        style="?android:textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="1dp"
+        android:text="Name"
+        android:textColor="#000000"
+        android:textSize="14sp" />
+    <!-- <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="13">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical">
+     <TextView
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="2dp"
-                android:gravity="center_vertical"
-                android:src="@drawable/car_one" />
-        </LinearLayout>
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:layout_weight="5"
+         android:text="Car"
+         android:textSize="14sp" />
 
-        <LinearLayout
+     <TextView
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="10dp"
-            android:layout_weight="0.2"
-            android:orientation="vertical">
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:text=":"
+         android:textSize="14sp"
+         android:layout_weight="6"/>
 
-            <TextView
-                android:id="@+id/lstvtextfullName"
-                style="?android:textAppearanceMedium"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:text="DK"
-                android:textColor="#000000" />
+     <TextView
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+         android:id="@+id/lstvtextCarNameNo"
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:layout_weight="2"
+         android:text="Car Name"
+         android:textSize="14sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="13">
 
-                <TextView
-                    android:id="@+id/textView"
-                    style="?android:textAppearanceMedium"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:text="Car\t\t\t\t:"
-                    android:textColor="#000000" />
+     <TextView
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:layout_weight="5"
+         android:text="Seats"
+         android:textSize="14sp" />
 
-                <TextView
-                    android:id="@+id/lstvtextCarNameNo"
-                    style="?android:textAppearanceMedium"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:text="Alto - MH41 AE 8543"
-                    android:textColor="#000000" />
-            </LinearLayout>
+     <TextView
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:text=":"
+         android:textSize="14sp"
+         android:layout_weight="6"/>
 
-                <TextView
+     <TextView
 
-                    style="?android:textAppearanceMedium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:text="Seats\t\t:" />
+         android:id="@+id/lstvtextSeatNo"
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:layout_weight="2"
+         android:text="no. of seat"
+         android:textSize="14sp" />
+    </LinearLayout>
+-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="13">
 
-                <TextView
+     <TextView
 
-                    android:id="@+id/lstvtextSeatNo"
-                    style="?android:textAppearanceMedium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:text="4" />
-            </LinearLayout>
+         android:id="@+id/textView3"
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:layout_weight="5"
+         android:text="Date"
+         android:textSize="14sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+     <TextView
 
-                <TextView
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:text=":"
+         android:textSize="14sp"
+         android:layout_weight="6"/>
 
-                    style="?android:textAppearanceMedium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:text="Date\t\t\t:" />
+     <TextView
 
-                <TextView
+         android:id="@+id/lstvtextDate"
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:layout_weight="2"
+         android:text="null"
+         android:textSize="14sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="13">
 
-                    android:id="@+id/lstvtextDate"
-                    style="?android:textAppearanceMedium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:text="13-12-2016 T" />
-            </LinearLayout>
+     <TextView
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:layout_weight="5"
+         android:text="Time"
+         android:textSize="14sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+     <TextView
 
-                <TextView
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:text=":"
+         android:textSize="14sp"
+         android:layout_weight="6"/>
 
-                    style="?android:textAppearanceMedium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:text="Time\t\t:" />
+     <TextView
 
-                <TextView
-
-                    android:id="@+id/lstvtextTime"
-                    style="?android:textAppearanceMedium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:text="3:40" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-
-                    style="?android:textAppearanceMedium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    android:text="From\t\t:" />
-
-                <TextView
-
-                    android:id="@+id/lstvtextFrom"
-                    style="?android:textAppearanceMedium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    android:text="Trimurti" />
-
-                <TextView
-
-                    android:id="@+id/textView19"
-                    style="?android:textAppearanceMedium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    android:text="->To :" />
-
-                <TextView
-
-                    android:id="@+id/lstvtextTo"
-                    style="?android:textAppearanceMedium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
-                    android:text="HAL" />
-            </LinearLayout>
+         android:id="@+id/lstvtextTime"
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:layout_weight="2"
+         android:text="null"
+         android:textSize="14sp" />
+    </LinearLayout>
 
 
-        </LinearLayout>
-        <!--<LinearLayout-->
-        <!--android:layout_weight="0.2"-->
-        <!--android:layout_gravity="center_vertical"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content">-->
-        <!---->
-        <!---->
-        <!--</LinearLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="13">
+
+     <TextView
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:layout_weight="5"
+         android:text="From"
+         android:textSize="14sp" />
+
+     <TextView
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:layout_weight="6"
+         android:text=":"
+         android:textSize="14sp" />
+
+     <TextView
+         android:id="@+id/lstvtextFrom"
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:layout_weight="2"
+         android:text="null"
+         android:textSize="14sp" />
+     </LinearLayout>
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal"
+         android:weightSum="13">
+     <TextView
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:layout_weight="5"
+         android:text="To"
+         android:textSize="14sp" />
+
+     <TextView
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:layout_weight="6"
+         android:text=":"
+         android:textSize="14sp" />
+
+     <TextView
+         android:id="@+id/lstvtextTo"
+         style="?android:textAppearanceMedium"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="1dp"
+         android:layout_weight="2"
+         android:text="null"
+         android:textSize="14sp" />
 
     </LinearLayout>
 
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="14">
+
+
+    </LinearLayout>
+
+
+   </LinearLayout>
+  </LinearLayout>
+ </android.support.v7.widget.CardView>
 
 </LinearLayout>
